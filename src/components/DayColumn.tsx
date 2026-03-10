@@ -15,8 +15,8 @@ export function DayColumn({ date }: DayColumnProps) {
       data-today={isToday ? 'true' : undefined}
       className={[
         'flex flex-col min-w-0',
-        isWeekend ? 'bg-[--color-weekend-bg]' : '',
-        isToday ? 'bg-[--color-today-bg]' : '',
+        isWeekend ? 'bg-weekend-bg' : '',
+        isToday ? 'bg-today-bg' : '',
       ].filter(Boolean).join(' ')}
     >
       {/* Date number header — small, not bold */}

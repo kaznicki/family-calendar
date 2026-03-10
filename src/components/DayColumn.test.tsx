@@ -8,19 +8,19 @@ const SUNDAY = new Date(2026, 2, 15)
 const MONDAY = new Date(2026, 2, 16)
 
 describe('DayColumn — weekend', () => {
-  it('Saturday column has bg-[--color-weekend-bg] class', () => {
+  it('Saturday column has bg-weekend-bg class', () => {
     const { container } = render(<DayColumn date={SATURDAY} />)
-    expect(container.firstChild).toHaveClass('bg-[--color-weekend-bg]')
+    expect(container.firstChild).toHaveClass('bg-weekend-bg')
   })
 
-  it('Sunday column has bg-[--color-weekend-bg] class', () => {
+  it('Sunday column has bg-weekend-bg class', () => {
     const { container } = render(<DayColumn date={SUNDAY} />)
-    expect(container.firstChild).toHaveClass('bg-[--color-weekend-bg]')
+    expect(container.firstChild).toHaveClass('bg-weekend-bg')
   })
 
   it('Monday column does not have weekend class', () => {
     const { container } = render(<DayColumn date={MONDAY} />)
-    expect(container.firstChild).not.toHaveClass('bg-[--color-weekend-bg]')
+    expect(container.firstChild).not.toHaveClass('bg-weekend-bg')
   })
 })
 

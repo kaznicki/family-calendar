@@ -2,7 +2,7 @@
 
 @theme {
   --color-today-bg: oklch(0.95 0.03 240);
-  --color-weekend-bg: oklch(0.97 0 0);
+  --color-weekend-bg: oklch(0.93 0 0);
 }
 
 * {
