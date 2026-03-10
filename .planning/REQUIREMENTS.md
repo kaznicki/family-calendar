@@ -88,35 +88,35 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GRID-01 | — | Pending |
-| GRID-02 | — | Pending |
-| GRID-03 | — | Pending |
-| GRID-04 | — | Pending |
-| EVNT-01 | — | Pending |
-| EVNT-02 | — | Pending |
-| EVNT-03 | — | Pending |
-| EVNT-04 | — | Pending |
-| EVNT-05 | — | Pending |
-| EVNT-06 | — | Pending |
-| PEPL-01 | — | Pending |
-| PEPL-02 | — | Pending |
-| PEPL-03 | — | Pending |
-| PEPL-04 | — | Pending |
-| VISU-01 | — | Pending |
-| VISU-02 | — | Pending |
-| VISU-03 | — | Pending |
-| VISU-04 | — | Pending |
-| RECU-01 | — | Pending |
-| RECU-02 | — | Pending |
-| SHRG-01 | — | Pending |
-| SHRG-02 | — | Pending |
-| PRNT-01 | — | Pending |
+| GRID-01 | Phase 1 | Pending |
+| GRID-02 | Phase 1 | Pending |
+| GRID-03 | Phase 1 | Pending |
+| GRID-04 | Phase 1 | Pending |
+| EVNT-01 | Phase 2 | Pending |
+| EVNT-02 | Phase 2 | Pending |
+| EVNT-03 | Phase 2 | Pending |
+| EVNT-04 | Phase 2 | Pending |
+| EVNT-05 | Phase 2 | Pending |
+| EVNT-06 | Phase 2 | Pending |
+| PEPL-01 | Phase 2 | Pending |
+| PEPL-02 | Phase 2 | Pending |
+| PEPL-03 | Phase 3 | Pending |
+| PEPL-04 | Phase 2 | Pending |
+| VISU-01 | Phase 1 | Pending |
+| VISU-02 | Phase 3 | Pending |
+| VISU-03 | Phase 3 | Pending |
+| VISU-04 | Phase 1 | Pending |
+| RECU-01 | Phase 2 | Pending |
+| RECU-02 | Phase 2 | Pending |
+| SHRG-01 | Phase 1 | Pending |
+| SHRG-02 | Phase 2 | Pending |
+| PRNT-01 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 23 total
-- Mapped to phases: 0
-- Unmapped: 23 ⚠️
+- Mapped to phases: 23
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after initial definition*
+*Last updated: 2026-03-10 after roadmap creation*
