@@ -8,7 +8,9 @@ const PARTYKIT_HOST = import.meta.env.VITE_PARTYKIT_HOST ?? 'localhost:1999'
 
 // Provider created at module scope — not inside the component — so it is stable
 // across React re-renders and StrictMode double-invokes.
-const _provider = new YPartyKitProvider(PARTYKIT_HOST, 'family-calendar', ydoc, {
+// Exported so TypeScript does not flag it as an unused local; Phase 2 may use
+// provider.awareness for presence/cursors.
+export const provider = new YPartyKitProvider(PARTYKIT_HOST, 'family-calendar', ydoc, {
   params: async () => ({ token: getTokenFromURL() }),
 })
 

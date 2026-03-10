@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { generateWeeks, formatWeekRange, isDayWeekend, isDayToday } from './dates'
+import { generateWeeks, formatWeekRange, isDayWeekend } from './dates'
 
 describe('generateWeeks', () => {
   it('returns ~104 weeks for a 24-month range', () => {
