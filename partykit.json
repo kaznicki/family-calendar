@@ -1,0 +1,4 @@
+{
+  "name": "family-calendar",
+  "main": "party/server.ts"
+}
