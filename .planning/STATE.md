@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-grid-scaffold-04-PLAN.md
-last_updated: "2026-03-10T18:22:46.405Z"
+stopped_at: Completed 01-grid-scaffold-03-PLAN.md
+last_updated: "2026-03-10T18:52:25.651Z"
 last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 5
-  completed_plans: 3
+  completed_plans: 4
   percent: 0
 ---
 
@@ -53,6 +53,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-grid-scaffold P01 | 4 | 2 tasks | 12 files |
 | Phase 01-grid-scaffold P02 | 2min | 2 tasks | 4 files |
 | Phase 01-grid-scaffold P04 | 3min | 2 tasks | 7 files |
+| Phase 01-grid-scaffold P03 | 10min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -73,6 +74,9 @@ Recent decisions affecting current work:
 - [Phase 01-grid-scaffold]: min-w-0 on DayColumn prevents 7-column layout overflow at 375px mobile viewport
 - [Phase 01-grid-scaffold]: scrollIntoView behavior: instant (not smooth) on calendar mount — avoids disorienting flash
 - [Phase 01-grid-scaffold]: alignSelf: start on sticky header div — prevents CSS Grid stretch from breaking sticky positioning
+- [Phase 01-grid-scaffold]: Y.Doc and YPartyKitProvider at module scope — prevents StrictMode double-invoke creating duplicate documents
+- [Phase 01-grid-scaffold]: Fail-closed token guard: rejects connections when SECRET_TOKEN is empty — misconfigured deployments denied, not open
+- [Phase 01-grid-scaffold]: eventsMap schema locked with ISO date string keys before Phase 2 writes — prevents migration cost
 
 ### Pending Todos
 
@@ -85,6 +89,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T18:22:46.401Z
-Stopped at: Completed 01-grid-scaffold-04-PLAN.md
+Last session: 2026-03-10T18:52:25.647Z
+Stopped at: Completed 01-grid-scaffold-03-PLAN.md
 Resume file: None
