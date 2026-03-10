@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-10T15:02:44.171Z"
+stopped_at: Completed 01-grid-scaffold-01-PLAN.md
+last_updated: "2026-03-10T18:11:40.191Z"
 last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 5
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: —
 
 *Updated after each plan completion*
+| Phase 01-grid-scaffold P01 | 4 | 2 tasks | 12 files |
 
 ## Accumulated Context
 
@@ -62,6 +63,9 @@ Recent decisions affecting current work:
 - Architecture: Single Y.Doc at app root; EventEditor is the sole Yjs writer; display coordinates derived at render time, never stored in Yjs
 - Security: Token-based room validation in PartyKit onConnect — must be implemented in Phase 1 scaffold, painful to retrofit
 - Grid: Custom CSS Grid (not FullCalendar) — existing library models don't match the row-slot scrolling layout
+- [Phase 01-grid-scaffold]: Used it.todo() not it.skip() for Wave 0 stubs — todo exits 0, skip can signal failure
+- [Phase 01-grid-scaffold]: Pinned y-partykit to exact 0.0.33 without caret — pre-stable semver signals breaking changes possible
+- [Phase 01-grid-scaffold]: Tailwind v4 CSS-first config only — no tailwind.config.js, all theming in @theme {} block in index.css
 
 ### Pending Todos
 
@@ -74,6 +78,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T15:02:44.169Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-grid-scaffold/01-CONTEXT.md
+Last session: 2026-03-10T18:11:40.189Z
+Stopped at: Completed 01-grid-scaffold-01-PLAN.md
+Resume file: None

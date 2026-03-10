@@ -7,10 +7,10 @@
 
 ### Grid & Layout
 
-- [ ] **GRID-01**: User sees a 7-column week grid (one column per day, Sun–Sat) that scrolls vertically through months and years
-- [ ] **GRID-02**: Each week row displays a date-range header (e.g., "May 11–17")
-- [ ] **GRID-03**: Each day column has multiple row slots for events, expandable when a day has more events than default slots
-- [ ] **GRID-04**: The current day's column is visually highlighted
+- [x] **GRID-01**: User sees a 7-column week grid (one column per day, Sun–Sat) that scrolls vertically through months and years
+- [x] **GRID-02**: Each week row displays a date-range header (e.g., "May 11–17")
+- [x] **GRID-03**: Each day column has multiple row slots for events, expandable when a day has more events than default slots
+- [x] **GRID-04**: The current day's column is visually highlighted
 
 ### Events
 
@@ -30,10 +30,10 @@
 
 ### Visual Markers
 
-- [ ] **VISU-01**: Weekend columns (Saturday and Sunday) display with a gray background
+- [x] **VISU-01**: Weekend columns (Saturday and Sunday) display with a gray background
 - [ ] **VISU-02**: US public holidays display with a gray background
 - [ ] **VISU-03**: School vacation weeks display with a gray background
-- [ ] **VISU-04**: The current day column is highlighted to make today easy to find
+- [x] **VISU-04**: The current day column is highlighted to make today easy to find
 
 ### Recurring Schedule
 
@@ -42,7 +42,7 @@
 
 ### Sharing & Access
 
-- [ ] **SHRG-01**: A single shareable URL gives any family member full view and edit access — no login or account required
+- [x] **SHRG-01**: A single shareable URL gives any family member full view and edit access — no login or account required
 - [ ] **SHRG-02**: Multiple family members can edit the calendar simultaneously without data conflicts (real-time sync)
 
 ### Print
@@ -88,10 +88,10 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| GRID-01 | Phase 1 | Pending |
-| GRID-02 | Phase 1 | Pending |
-| GRID-03 | Phase 1 | Pending |
-| GRID-04 | Phase 1 | Pending |
+| GRID-01 | Phase 1 | Complete |
+| GRID-02 | Phase 1 | Complete |
+| GRID-03 | Phase 1 | Complete |
+| GRID-04 | Phase 1 | Complete |
 | EVNT-01 | Phase 2 | Pending |
 | EVNT-02 | Phase 2 | Pending |
 | EVNT-03 | Phase 2 | Pending |
@@ -102,13 +102,13 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PEPL-02 | Phase 2 | Pending |
 | PEPL-03 | Phase 3 | Pending |
 | PEPL-04 | Phase 2 | Pending |
-| VISU-01 | Phase 1 | Pending |
+| VISU-01 | Phase 1 | Complete |
 | VISU-02 | Phase 3 | Pending |
 | VISU-03 | Phase 3 | Pending |
-| VISU-04 | Phase 1 | Pending |
+| VISU-04 | Phase 1 | Complete |
 | RECU-01 | Phase 2 | Pending |
 | RECU-02 | Phase 2 | Pending |
-| SHRG-01 | Phase 1 | Pending |
+| SHRG-01 | Phase 1 | Complete |
 | SHRG-02 | Phase 2 | Pending |
 | PRNT-01 | Phase 3 | Pending |
 
