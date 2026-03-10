@@ -28,7 +28,14 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Today's column is visually highlighted so the current day is immediately obvious
   4. The grid renders correctly on a 375px mobile viewport and on desktop without layout breakage
   5. The Yjs document and PartyKit server scaffold are in place with token-protected room validation so data written in Phase 2 is secure from day one
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Project scaffold: Vite + React + Tailwind v4 + Vitest setup and Wave 0 test stubs
+- [ ] 01-02-PLAN.md — Date math + token library (TDD): generateWeeks, formatWeekRange, getTokenFromURL
+- [ ] 01-03-PLAN.md — Yjs + PartyKit scaffold: ydoc singleton, YPartyKitProvider, token-validated server
+- [ ] 01-04-PLAN.md — Calendar grid components: EventSlot, DayColumn, WeekRow, CalendarGrid with scroll-to-today
+- [ ] 01-05-PLAN.md — Visual checkpoint: human verification of mobile layout, sticky header, today/weekend styling
 
 ### Phase 2: Events and Sync
 **Goal**: Family members can add, edit, and delete events with person color coding, multi-day spanning events work without visual collision, the recurring schedule is visible, and all edits sync in real time between devices without data loss.
@@ -58,7 +65,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
-|-------|----------------|--------|-----------|
-| 1. Grid Scaffold | 0/TBD | Not started | - |
+| --- | --- | --- | --- |
+| 1. Grid Scaffold | 0/5 | In progress | - |
 | 2. Events and Sync | 0/TBD | Not started | - |
 | 3. Visual Polish and Print | 0/TBD | Not started | - |
