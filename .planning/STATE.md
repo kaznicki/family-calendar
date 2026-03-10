@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 01-grid-scaffold-01-PLAN.md
-last_updated: "2026-03-10T18:11:40.191Z"
+stopped_at: Completed 01-grid-scaffold-02-PLAN.md
+last_updated: "2026-03-10T18:15:54.515Z"
 last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 5
-  completed_plans: 1
+  completed_plans: 2
   percent: 0
 ---
 
@@ -51,6 +51,7 @@ Progress: [░░░░░░░░░░] 0%
 
 *Updated after each plan completion*
 | Phase 01-grid-scaffold P01 | 4 | 2 tasks | 12 files |
+| Phase 01-grid-scaffold P02 | 2min | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -66,6 +67,8 @@ Recent decisions affecting current work:
 - [Phase 01-grid-scaffold]: Used it.todo() not it.skip() for Wave 0 stubs — todo exits 0, skip can signal failure
 - [Phase 01-grid-scaffold]: Pinned y-partykit to exact 0.0.33 without caret — pre-stable semver signals breaking changes possible
 - [Phase 01-grid-scaffold]: Tailwind v4 CSS-first config only — no tailwind.config.js, all theming in @theme {} block in index.css
+- [Phase 01-grid-scaffold]: Used eachWeekOfInterval (not getDay() arithmetic) for week generation — avoids DST edge cases
+- [Phase 01-grid-scaffold]: getTokenFromURL() reads window.location.search via URLSearchParams — not string splitting
 
 ### Pending Todos
 
@@ -78,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10T18:11:40.189Z
-Stopped at: Completed 01-grid-scaffold-01-PLAN.md
+Last session: 2026-03-10T18:15:54.512Z
+Stopped at: Completed 01-grid-scaffold-02-PLAN.md
 Resume file: None
