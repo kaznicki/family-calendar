@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-status: planning
-stopped_at: Completed 02-07 — RecurringFooter with 6 passing tests, mounted in CalendarGrid
-last_updated: "2026-03-11T03:43:56.052Z"
-last_activity: 2026-03-10 — Roadmap created, phases defined
+status: in_progress
+stopped_at: Completed Phase 2 — all 9 plans done, human verification passed
+last_updated: "2026-03-11T14:40:00.000Z"
+last_activity: 2026-03-11 — Phase 2 complete, ready for Phase 3
 progress:
   total_phases: 3
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 14
-  completed_plans: 13
-  percent: 0
+  completed_plans: 14
+  percent: 67
 ---
 
 # Project State
@@ -21,16 +21,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-10)
 
 **Core value:** Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
-**Current focus:** Phase 1 - Grid Scaffold
+**Current focus:** Phase 3 - Visual Polish and Print
 
 ## Current Position
 
-Phase: 1 of 3 (Grid Scaffold)
+Phase: 3 of 3 (Visual Polish and Print)
 Plan: 0 of TBD in current phase
 Status: Ready to plan
-Last activity: 2026-03-10 — Roadmap created, phases defined
+Last activity: 2026-03-11 — Phase 2 human verification passed, bug fix applied
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [██████░░░░] 67%
 
 ## Performance Metrics
 
@@ -92,6 +92,7 @@ Recent decisions affecting current work:
 - [Phase 02-events-and-sync]: Settings gear icon is absolute-positioned (z-20) so it overlays CalendarGrid sticky header without displacing layout geometry
 - [Phase 02-events-and-sync]: RecurringFooter uses position:fixed so it stays visible during grid scroll; pb-28 prevents footer overlap
 - [Phase 02-events-and-sync]: EventPopover reused for recurring entries — onSave ignores personId from popover (row's personId is canonical)
+- [Phase 02-events-and-sync]: Never use dynamic bg-${token} Tailwind classes for person colors — always use style={{ backgroundColor: `var(--color-${token})` }} (Tailwind v4 purges dynamic class names)
 
 ### Pending Todos
 
@@ -99,11 +100,10 @@ None yet.
 
 ### Blockers/Concerns
 
-- Phase 1: Multi-day event slot allocation algorithm is non-trivial — plan dedicated design + unit test time during Phase 2 planning (flagged by research)
-- Phase 1: Verify current y-partykit version and changelog before Phase 2 implementation (0.0.x semver signals pre-stable)
+None.
 
 ## Session Continuity
 
-Last session: 2026-03-11T03:43:56.049Z
-Stopped at: Completed 02-07 — RecurringFooter with 6 passing tests, mounted in CalendarGrid
+Last session: 2026-03-11T14:40:00.000Z
+Stopped at: Phase 2 complete — human verification passed, Phase 3 ready to plan
 Resume file: None

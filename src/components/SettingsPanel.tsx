@@ -61,7 +61,8 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
         {people.map(person => (
           <div key={person.id} className="flex items-center gap-2">
             <span
-              className={`w-4 h-4 rounded-full flex-shrink-0 bg-${person.colorToken}`}
+              className="w-4 h-4 rounded-full flex-shrink-0"
+              style={{ backgroundColor: `var(--color-${person.colorToken})` }}
             />
             <span className="flex-1 text-sm text-gray-700">{person.label}</span>
             {!isDefault(person.id) && (
@@ -97,9 +98,10 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
               type="button"
               onClick={() => setSelectedToken(token)}
               aria-label={`Select color ${token}`}
-              className={`w-6 h-6 rounded-full bg-${token} border-2 ${
+              className={`w-6 h-6 rounded-full border-2 ${
                 selectedToken === token ? 'border-gray-700' : 'border-transparent'
               }`}
+              style={{ backgroundColor: `var(--color-${token})` }}
             />
           ))}
         </div>
