@@ -3,6 +3,7 @@ import { isThisWeek } from 'date-fns'
 import { generateWeeks } from '../lib/dates'
 import { WeekRow } from './WeekRow'
 import { EventPopover } from './EventPopover'
+import { RecurringFooter } from './RecurringFooter'
 import { addEvent } from '../lib/eventStore'
 import { useDragSelect } from '../lib/useDragSelect'
 
@@ -67,8 +68,9 @@ export function CalendarGrid() {
 
       {/* Scrollable body — only this element scrolls */}
       {/* overflow-y: auto here; NO overflow: hidden on any ancestor */}
+      {/* pb-28: prevents last calendar week from being hidden behind the fixed RecurringFooter */}
       <div
-        className="overflow-y-auto flex-1"
+        className="overflow-y-auto flex-1 pb-28"
         onPointerUp={dragState.active ? handlePointerUpOnGrid : undefined}
       >
         {weeks.map((week) => (
@@ -83,6 +85,9 @@ export function CalendarGrid() {
           />
         ))}
       </div>
+
+      {/* Recurring schedule footer — fixed at bottom of viewport, outside scroll area */}
+      <RecurringFooter />
 
       {/* Multi-day create popover (opened after drag completes) */}
       {multiDayPopover && (
