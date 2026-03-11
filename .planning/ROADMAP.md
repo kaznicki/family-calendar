@@ -78,5 +78,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 | --- | --- | --- | --- |
 | 1. Grid Scaffold | 5/5 | Complete | 2026-03-10 |
-| 2. Events and Sync | 0/9 | Planning complete | - |
+| 2. Events and Sync | 2/9 | In Progress|  |
 | 3. Visual Polish and Print | 0/TBD | Not started | - |

@@ -14,19 +14,19 @@
 
 ### Events
 
-- [ ] **EVNT-01**: User can add an event to a day slot inline (no separate form/modal required)
-- [ ] **EVNT-02**: User can edit an existing event
-- [ ] **EVNT-03**: User can delete an event
-- [ ] **EVNT-04**: A multi-day event occupies a single row that spans across consecutive day-columns
-- [ ] **EVNT-05**: Events can optionally include a time (not required)
-- [ ] **EVNT-06**: Multiple events in the same day slot are stacked visibly without overlapping each other
+- [x] **EVNT-01**: User can add an event to a day slot inline (no separate form/modal required)
+- [x] **EVNT-02**: User can edit an existing event
+- [x] **EVNT-03**: User can delete an event
+- [x] **EVNT-04**: A multi-day event occupies a single row that spans across consecutive day-columns
+- [x] **EVNT-05**: Events can optionally include a time (not required)
+- [x] **EVNT-06**: Multiple events in the same day slot are stacked visibly without overlapping each other
 
 ### People & Colors
 
-- [ ] **PEPL-01**: Each family member is associated with a distinct color, applied to their events
-- [ ] **PEPL-02**: User assigns a person/color to an event with a single tap or click when adding or editing
+- [x] **PEPL-01**: Each family member is associated with a distinct color, applied to their events
+- [x] **PEPL-02**: User assigns a person/color to an event with a single tap or click when adding or editing
 - [ ] **PEPL-03**: Birthdays and anniversaries display in a dedicated special color distinct from person colors
-- [ ] **PEPL-04**: User can add or remove family members and change their assigned colors (configurable roster)
+- [x] **PEPL-04**: User can add or remove family members and change their assigned colors (configurable roster)
 
 ### Visual Markers
 
@@ -37,13 +37,13 @@
 
 ### Recurring Schedule
 
-- [ ] **RECU-01**: A dedicated section (bottom or sidebar) displays Ivy's weekly dance schedule as a standing reference
-- [ ] **RECU-02**: User can edit the recurring schedule entries via a simple form
+- [x] **RECU-01**: A dedicated section (bottom or sidebar) displays Ivy's weekly dance schedule as a standing reference
+- [x] **RECU-02**: User can edit the recurring schedule entries via a simple form
 
 ### Sharing & Access
 
 - [x] **SHRG-01**: A single shareable URL gives any family member full view and edit access — no login or account required
-- [ ] **SHRG-02**: Multiple family members can edit the calendar simultaneously without data conflicts (real-time sync)
+- [x] **SHRG-02**: Multiple family members can edit the calendar simultaneously without data conflicts (real-time sync)
 
 ### Print
 
@@ -92,24 +92,24 @@ Which phases cover which requirements. Updated during roadmap creation.
 | GRID-02 | Phase 1 | Complete |
 | GRID-03 | Phase 1 | Complete |
 | GRID-04 | Phase 1 | Complete |
-| EVNT-01 | Phase 2 | Pending |
-| EVNT-02 | Phase 2 | Pending |
-| EVNT-03 | Phase 2 | Pending |
-| EVNT-04 | Phase 2 | Pending |
-| EVNT-05 | Phase 2 | Pending |
-| EVNT-06 | Phase 2 | Pending |
-| PEPL-01 | Phase 2 | Pending |
-| PEPL-02 | Phase 2 | Pending |
+| EVNT-01 | Phase 2 | Complete |
+| EVNT-02 | Phase 2 | Complete |
+| EVNT-03 | Phase 2 | Complete |
+| EVNT-04 | Phase 2 | Complete |
+| EVNT-05 | Phase 2 | Complete |
+| EVNT-06 | Phase 2 | Complete |
+| PEPL-01 | Phase 2 | Complete |
+| PEPL-02 | Phase 2 | Complete |
 | PEPL-03 | Phase 3 | Pending |
-| PEPL-04 | Phase 2 | Pending |
+| PEPL-04 | Phase 2 | Complete |
 | VISU-01 | Phase 1 | Complete |
 | VISU-02 | Phase 3 | Pending |
 | VISU-03 | Phase 3 | Pending |
 | VISU-04 | Phase 1 | Complete |
-| RECU-01 | Phase 2 | Pending |
-| RECU-02 | Phase 2 | Pending |
+| RECU-01 | Phase 2 | Complete |
+| RECU-02 | Phase 2 | Complete |
 | SHRG-01 | Phase 1 | Complete |
-| SHRG-02 | Phase 2 | Pending |
+| SHRG-02 | Phase 2 | Complete |
 | PRNT-01 | Phase 3 | Pending |
 
 **Coverage:**

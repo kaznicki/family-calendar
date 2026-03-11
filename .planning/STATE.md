@@ -3,15 +3,15 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 2 planned — ready to execute
-last_updated: "2026-03-10T00:00:00.000Z"
-last_activity: 2026-03-10 — Phase 2 plans created and verified (9 plans, 6 waves)
+stopped_at: Completed 02-events-and-sync 02-01-PLAN.md
+last_updated: "2026-03-11T03:12:58.524Z"
+last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
   completed_phases: 1
   total_plans: 14
-  completed_plans: 5
-  percent: 33
+  completed_plans: 7
+  percent: 0
 ---
 
 # Project State
@@ -55,6 +55,8 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-grid-scaffold P04 | 3min | 2 tasks | 7 files |
 | Phase 01-grid-scaffold P03 | 10min | 2 tasks | 3 files |
 | Phase 01-grid-scaffold P05 | 15min | 2 tasks | 3 files |
+| Phase 02-events-and-sync P01 | 3 | 2 tasks | 13 files |
+| Phase 02-events-and-sync P02 | 3min | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -80,6 +82,8 @@ Recent decisions affecting current work:
 - [Phase 01-grid-scaffold]: eventsMap schema locked with ISO date string keys before Phase 2 writes — prevents migration cost
 - [Phase 01-grid-scaffold]: Tailwind v4 bg-[--color-X] bracket syntax omits var() wrapper — use bg-{token-name} for @theme tokens
 - [Phase 01-grid-scaffold]: Weekend shading uses oklch(0.93 0 0) — 7% below white, visible but unobtrusive
+- [Phase 02-events-and-sync]: computeSlotLayout slot collision per-date not per-week — two non-overlapping multi-day events in same week both get slot 0
+- [Phase 02-events-and-sync]: MULTI_DAY_SLOT=0 and MAX_SLOTS=5 exported as named constants from slotLayout.ts — avoids magic numbers in CalendarGrid
 
 ### Pending Todos
 
@@ -92,6 +96,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-10
-Stopped at: Phase 2 planned — 9 plans verified, ready to execute
-Resume file: none
+Last session: 2026-03-11T03:12:49.945Z
+Stopped at: Completed 02-events-and-sync 02-01-PLAN.md
+Resume file: None
