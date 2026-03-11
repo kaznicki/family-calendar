@@ -113,3 +113,21 @@ export function getPeople(map: Y.Map<string> = moduleRosterMap): Person[] {
   })
   return [...PEOPLE, ...custom]
 }
+
+// ─── useRosterMap ─────────────────────────────────────────────────────────────
+
+let cachedRosterSnapshot: Record<string, string> = {}
+
+const rosterSubscribe = (cb: () => void) => {
+  moduleRosterMap.observeDeep(cb)
+  return () => moduleRosterMap.unobserveDeep(cb)
+}
+
+const getRosterSnapshot = (): Record<string, string> => {
+  const fresh = JSON.stringify(moduleRosterMap.toJSON())
+  const cached = JSON.stringify(cachedRosterSnapshot)
+  if (fresh !== cached) cachedRosterSnapshot = JSON.parse(fresh)
+  return cachedRosterSnapshot
+}
+
+export const useRosterMap = () => useSyncExternalStore(rosterSubscribe, getRosterSnapshot)
