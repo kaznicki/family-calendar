@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-events-and-sync 02-01-PLAN.md
-last_updated: "2026-03-11T03:12:58.524Z"
+stopped_at: Completed 02-events-and-sync plan 02 — people.ts and slotLayout.ts with 8 passing tests
+last_updated: "2026-03-11T03:13:05.133Z"
 last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
@@ -84,6 +84,8 @@ Recent decisions affecting current work:
 - [Phase 01-grid-scaffold]: Weekend shading uses oklch(0.93 0 0) — 7% below white, visible but unobtrusive
 - [Phase 02-events-and-sync]: computeSlotLayout slot collision per-date not per-week — two non-overlapping multi-day events in same week both get slot 0
 - [Phase 02-events-and-sync]: MULTI_DAY_SLOT=0 and MAX_SLOTS=5 exported as named constants from slotLayout.ts — avoids magic numbers in CalendarGrid
+- [Phase 02-events-and-sync]: computeSlotLayout per-date collision checking: non-overlapping multi-day events in same week both get slot 0
+- [Phase 02-events-and-sync]: colorToken = person id string — simplifies Tailwind class construction (bg-{person.colorToken})
 
 ### Pending Todos
 
@@ -96,6 +98,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T03:12:49.945Z
-Stopped at: Completed 02-events-and-sync 02-01-PLAN.md
+Last session: 2026-03-11T03:13:05.130Z
+Stopped at: Completed 02-events-and-sync plan 02 — people.ts and slotLayout.ts with 8 passing tests
 Resume file: None
