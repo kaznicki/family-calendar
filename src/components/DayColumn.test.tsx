@@ -38,8 +38,8 @@ describe('DayColumn — today', () => {
 })
 
 describe('DayColumn — slots', () => {
-  it('renders exactly 5 event slots', () => {
+  it('renders exactly 4 event slots (slots 1-4; slot 0 is multi-day row in WeekRow)', () => {
     render(<DayColumn date={MONDAY} />)
-    expect(screen.getAllByTestId('event-slot')).toHaveLength(5)
+    expect(screen.getAllByTestId('event-slot')).toHaveLength(4)
   })
 })

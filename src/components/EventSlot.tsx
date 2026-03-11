@@ -8,10 +8,11 @@ interface EventSlotProps {
   event?: CalendarEvent | null
   date: string           // ISO date: "2026-03-15"
   slotIndex: number
-  onPointerDown?: (e: React.PointerEvent, date: string) => void
+  onPointerDown?: (e: React.PointerEvent<HTMLElement>, date: string) => void
+  onPointerMove?: (e: React.PointerEvent<HTMLElement>, date: string) => void
 }
 
-export function EventSlot({ event, date, slotIndex, onPointerDown }: EventSlotProps) {
+export function EventSlot({ event, date, slotIndex, onPointerDown, onPointerMove }: EventSlotProps) {
   const [isOpen, setIsOpen] = useState(false)
   const slotRef = useRef<HTMLDivElement>(null)
 
@@ -59,7 +60,8 @@ export function EventSlot({ event, date, slotIndex, onPointerDown }: EventSlotPr
         data-slot-index={slotIndex}
         className={['h-7 overflow-hidden', !event ? 'cursor-pointer' : ''].filter(Boolean).join(' ')}
         onClick={handleSlotClick}
-        onPointerDown={onPointerDown ? (e) => onPointerDown(e, date) : undefined}
+        onPointerDown={onPointerDown ? (e) => onPointerDown(e as React.PointerEvent<HTMLElement>, date) : undefined}
+        onPointerMove={onPointerMove ? (e) => onPointerMove(e as React.PointerEvent<HTMLElement>, date) : undefined}
       >
         {event && (
           <EventCard

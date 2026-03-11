@@ -1,7 +1,10 @@
-import { useEffect, useRef, useMemo } from 'react'
+import { useEffect, useRef, useMemo, useState } from 'react'
 import { isThisWeek } from 'date-fns'
 import { generateWeeks } from '../lib/dates'
 import { WeekRow } from './WeekRow'
+import { EventPopover } from './EventPopover'
+import { addEvent } from '../lib/eventStore'
+import { useDragSelect } from '../lib/useDragSelect'
 
 // Day names for the sticky header strip
 // Desktop: full names; Mobile: single letters via responsive classes
@@ -20,6 +23,28 @@ export function CalendarGrid() {
     // behavior: 'instant' (not 'smooth') — avoids disorienting flash on load.
     todayRef.current?.scrollIntoView({ block: 'start', behavior: 'instant' })
   }, []) // Empty deps: run once on mount only
+
+  // Drag-to-select for multi-day event creation
+  const { dragState, handlePointerDown, handlePointerMove, handlePointerUp, selectionDates } = useDragSelect()
+
+  // Multi-day popover state (opened after a completed drag)
+  const [multiDayPopover, setMultiDayPopover] = useState<{
+    startDate: string
+    endDate: string
+    anchorEl: HTMLElement | null
+  } | null>(null)
+
+  function handlePointerUpOnGrid(e: React.PointerEvent<HTMLElement>) {
+    const result = handlePointerUp(e)
+    if (result.type === 'drag') {
+      setMultiDayPopover({
+        startDate: result.startDate,
+        endDate: result.endDate,
+        anchorEl: e.currentTarget,
+      })
+    }
+    // 'click' type is handled by EventSlot's own onClick
+  }
 
   return (
     // Outer container: full viewport height, no overflow (body div handles scroll)
@@ -42,16 +67,44 @@ export function CalendarGrid() {
 
       {/* Scrollable body — only this element scrolls */}
       {/* overflow-y: auto here; NO overflow: hidden on any ancestor */}
-      <div className="overflow-y-auto flex-1">
+      <div
+        className="overflow-y-auto flex-1"
+        onPointerUp={dragState.active ? handlePointerUpOnGrid : undefined}
+      >
         {weeks.map((week) => (
           <WeekRow
             key={week.weekStart.toISOString()}
             week={week}
             todayRef={todayRef}
             isCurrentWeek={isThisWeek(week.weekStart, { weekStartsOn: 0 })}
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            selectionDates={selectionDates}
           />
         ))}
       </div>
+
+      {/* Multi-day create popover (opened after drag completes) */}
+      {multiDayPopover && (
+        <EventPopover
+          anchorEl={multiDayPopover.anchorEl}
+          isOpen={true}
+          onClose={() => setMultiDayPopover(null)}
+          onSave={(data) => {
+            addEvent({
+              id: crypto.randomUUID(),
+              title: data.title,
+              date: multiDayPopover.startDate,
+              endDate: multiDayPopover.endDate,
+              isMultiDay: true,
+              personId: data.personId,
+              color: data.personId,
+              startTime: data.startTime,
+            })
+            setMultiDayPopover(null)
+          }}
+        />
+      )}
     </div>
   )
 }
