@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-events-and-sync plan 02 — people.ts and slotLayout.ts with 8 passing tests
-last_updated: "2026-03-11T03:13:05.133Z"
+stopped_at: Completed 02-events-and-sync plan 08 — SettingsPanel with Yjs-backed roster management
+last_updated: "2026-03-11T03:43:53.182Z"
 last_activity: 2026-03-10 — Roadmap created, phases defined
 progress:
   total_phases: 3
   completed_phases: 1
   total_plans: 14
-  completed_plans: 7
+  completed_plans: 13
   percent: 0
 ---
 
@@ -57,6 +57,8 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-grid-scaffold P05 | 15min | 2 tasks | 3 files |
 | Phase 02-events-and-sync P01 | 3 | 2 tasks | 13 files |
 | Phase 02-events-and-sync P02 | 3min | 2 tasks | 3 files |
+| Phase 02-events-and-sync P08 | 1min | 2 tasks | 3 files |
+| Phase 02-events-and-sync P07 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -86,6 +88,10 @@ Recent decisions affecting current work:
 - [Phase 02-events-and-sync]: MULTI_DAY_SLOT=0 and MAX_SLOTS=5 exported as named constants from slotLayout.ts — avoids magic numbers in CalendarGrid
 - [Phase 02-events-and-sync]: computeSlotLayout per-date collision checking: non-overlapping multi-day events in same week both get slot 0
 - [Phase 02-events-and-sync]: colorToken = person id string — simplifies Tailwind class construction (bg-{person.colorToken})
+- [Phase 02-events-and-sync]: useRosterMap added to eventStore.ts alongside useEventsMap and useRecurringMap — same useSyncExternalStore pattern, consistent approach
+- [Phase 02-events-and-sync]: Settings gear icon is absolute-positioned (z-20) so it overlays CalendarGrid sticky header without displacing layout geometry
+- [Phase 02-events-and-sync]: RecurringFooter uses position:fixed so it stays visible during grid scroll; pb-28 prevents footer overlap
+- [Phase 02-events-and-sync]: EventPopover reused for recurring entries — onSave ignores personId from popover (row's personId is canonical)
 
 ### Pending Todos
 
@@ -98,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-11T03:13:05.130Z
-Stopped at: Completed 02-events-and-sync plan 02 — people.ts and slotLayout.ts with 8 passing tests
+Last session: 2026-03-11T03:43:44.369Z
+Stopped at: Completed 02-events-and-sync plan 08 — SettingsPanel with Yjs-backed roster management
 Resume file: None
