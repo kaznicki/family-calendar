@@ -10,3 +10,14 @@ export const ydoc = new Y.Doc()
 // Display coordinates (grid row/column) are NEVER stored here; they are
 // derived at render time in Phase 2.
 export const eventsMap = ydoc.getMap<Y.Array<Y.Map<unknown>>>('events')
+
+// Recurring schedule map: keys are "{personId}-{dayOfWeek}" (e.g. "timur-1")
+// Value is an activity label string (e.g. "Capital Planning")
+// Day of week: 0=Sun, 1=Mon, ..., 6=Sat
+// Delete key to remove entry — no null values stored
+export const recurringMap = ydoc.getMap<string>('recurring')
+
+// Roster map: keys are personId strings (e.g. "timur", "custom-alice")
+// Value is JSON string: { label: string; colorToken: string }
+// The 7 default people from people.ts are static — rosterMap only stores additions
+export const rosterMap = ydoc.getMap<string>('roster')
