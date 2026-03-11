@@ -47,7 +47,18 @@ Plans:
   3. A multi-day event (e.g., a vacation spanning Mon-Fri) appears as a single horizontal block spanning across all its day-columns without overlapping other events in the same row
   4. A second family member opening the same URL on a different device sees the other person's edits appear in real time without a page refresh, and no edits are lost when both people edit simultaneously
   5. A dedicated section displays Ivy's weekly dance schedule as a standing reference, and a family member can edit those recurring entries
-**Plans**: TBD
+**Plans**: 9 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Wave 0 stubs: install @floating-ui/react, extend ydoc.ts, create all 11 stub files
+- [ ] 02-02-PLAN.md — Core logic (TDD): people.ts person config + slotLayout.ts slot allocation algorithm
+- [ ] 02-03-PLAN.md — Yjs store (TDD): eventStore.ts with useEventsMap, addEvent, deleteEvent, roster helpers
+- [ ] 02-04-PLAN.md — EventCard component: 8 person color tokens in @theme {}, colored event chip with tests
+- [ ] 02-05-PLAN.md — Event popover + grid wiring: EventPopover, EventSlot/DayColumn/WeekRow updated for CRUD
+- [ ] 02-06-PLAN.md — Multi-day events: useDragSelect hook, spanning CSS grid blocks, overflow indicator
+- [ ] 02-07-PLAN.md — RecurringFooter: fixed viewport-bottom reference panel, 7 people x 7 days, Yjs-backed
+- [ ] 02-08-PLAN.md — SettingsPanel: roster management (add/remove custom people) behind settings icon
+- [ ] 02-09-PLAN.md — Human verification checkpoint: CRUD, colors, drag, sync, recurring footer, settings
 
 ### Phase 3: Visual Polish and Print
 **Goal**: The calendar correctly marks holidays, school vacation weeks, and birthdays/anniversaries, and any family member can print the next 10 weeks in a clean grid layout suitable for posting on the fridge.
@@ -66,6 +77,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 | --- | --- | --- | --- |
-| 1. Grid Scaffold | 3/5 | In Progress|  |
-| 2. Events and Sync | 0/TBD | Not started | - |
+| 1. Grid Scaffold | 5/5 | Complete | 2026-03-10 |
+| 2. Events and Sync | 0/9 | Planning complete | - |
 | 3. Visual Polish and Print | 0/TBD | Not started | - |
