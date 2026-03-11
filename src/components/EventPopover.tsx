@@ -112,8 +112,8 @@ export function EventPopover({
                 type="button"
                 data-color={chip.id ?? 'unassigned'}
                 onClick={() => setPersonId(chip.id)}
+                style={{ backgroundColor: `var(--color-${chip.colorToken})` }}
                 className={[
-                  `bg-${chip.colorToken}`,
                   'text-xs px-1.5 py-0.5 rounded truncate max-w-[80px]',
                   isSelected ? 'ring-2 ring-offset-1 ring-gray-700' : '',
                 ].filter(Boolean).join(' ')}

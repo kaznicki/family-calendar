@@ -27,7 +27,6 @@ export function useDragSelect(): DragSelectResult {
   const startPosRef = useRef<{ x: number; y: number } | null>(null)
 
   const handlePointerDown = useCallback((e: React.PointerEvent<HTMLElement>, date: string) => {
-    e.currentTarget.setPointerCapture(e.pointerId)
     startPosRef.current = { x: e.clientX, y: e.clientY }
     setDragState({ startDate: date, endDate: date, active: true })
   }, [])
@@ -42,7 +41,6 @@ export function useDragSelect(): DragSelectResult {
   }, [])
 
   const handlePointerUp = useCallback((e: React.PointerEvent<HTMLElement>) => {
-    e.currentTarget.releasePointerCapture(e.pointerId)
     document.body.style.userSelect = ''
 
     const { startDate, endDate } = dragState

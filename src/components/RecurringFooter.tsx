@@ -18,7 +18,9 @@ export function RecurringFooter() {
   const [popover, setPopover] = useState<PopoverState | null>(null)
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-20 overflow-auto">
+    <div className="fixed bottom-0 left-0 right-0 z-20">
+      {/* Scrollable footer content — overflow-auto for narrow screens */}
+      <div className="overflow-auto bg-white border-t border-gray-200">
       {/* Header row: empty label cell + 7 day labels */}
       <div className="flex">
         <div className="w-12 shrink-0" />
@@ -37,7 +39,8 @@ export function RecurringFooter() {
         <div
           key={person.id}
           data-testid="person-row"
-          className={`flex items-center bg-${person.colorToken}`}
+          style={{ backgroundColor: `var(--color-${person.colorToken})` }}
+          className="flex items-center"
         >
           {/* Person label cell — tinted with person color */}
           <div className="w-12 shrink-0 text-[10px] font-medium px-1 truncate">
@@ -69,7 +72,9 @@ export function RecurringFooter() {
         </div>
       ))}
 
-      {/* Edit/create popover */}
+      </div>{/* end overflow-auto */}
+
+      {/* Popover rendered outside overflow-auto so it isn't clipped */}
       {popover && (
         <EventPopover
           anchorEl={popover.anchorEl}

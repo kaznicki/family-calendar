@@ -7,15 +7,14 @@ describe('EventCard', () => {
     expect(screen.getByText('Doctor appointment')).toBeInTheDocument()
   })
 
-  it('applies bg-{personId} class matching the person color token', () => {
+  it('applies inline background-color style for person color token', () => {
     const { container } = render(<EventCard title="Test" colorToken="lois" onEdit={() => {}} />)
-    expect(container.firstChild).toHaveClass('bg-lois')
-    expect(container.firstChild).not.toHaveClass('bg-[--color-lois]')
+    expect(container.firstChild).toHaveStyle({ backgroundColor: 'var(--color-lois)' })
   })
 
-  it('applies bg-unassigned when colorToken is null', () => {
+  it('applies bg-unassigned inline style when colorToken is null', () => {
     const { container } = render(<EventCard title="Test" colorToken={null} onEdit={() => {}} />)
-    expect(container.firstChild).toHaveClass('bg-unassigned')
+    expect(container.firstChild).toHaveStyle({ backgroundColor: 'var(--color-unassigned)' })
   })
 
   it('renders startTime when provided', () => {

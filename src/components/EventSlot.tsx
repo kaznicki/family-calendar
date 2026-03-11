@@ -60,7 +60,7 @@ export function EventSlot({ event, date, slotIndex, onPointerDown, onPointerMove
         data-slot-index={slotIndex}
         className={['h-7 overflow-hidden', !event ? 'cursor-pointer' : ''].filter(Boolean).join(' ')}
         onClick={handleSlotClick}
-        onPointerDown={onPointerDown ? (e) => onPointerDown(e as React.PointerEvent<HTMLElement>, date) : undefined}
+        onPointerDown={onPointerDown && !event ? (e) => onPointerDown(e as React.PointerEvent<HTMLElement>, date) : undefined}
         onPointerMove={onPointerMove ? (e) => onPointerMove(e as React.PointerEvent<HTMLElement>, date) : undefined}
       >
         {event && (

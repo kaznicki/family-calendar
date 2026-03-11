@@ -27,11 +27,10 @@ describe('RecurringFooter', () => {
     expect(dayCells).toHaveLength(49)  // 7 people x 7 days
   })
 
-  it('each row is tinted with the person color token class', () => {
-    const { container } = render(<RecurringFooter />)
-    // Timur's row header should have bg-timur class
-    const timurLabel = screen.getByText('Timur').closest('[data-testid="person-row"]')
-    expect(timurLabel).toHaveClass('bg-timur')
+  it('each row is tinted with the person color token via inline style', () => {
+    render(<RecurringFooter />)
+    const timurRow = screen.getByText('Timur').closest('[data-testid="person-row"]')
+    expect(timurRow).toHaveStyle({ backgroundColor: 'var(--color-timur)' })
   })
 
   it('shows activity label for cells with recurring entries', () => {
