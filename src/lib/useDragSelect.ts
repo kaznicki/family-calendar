@@ -31,7 +31,7 @@ export function useDragSelect(): DragSelectResult {
     setDragState({ startDate: date, endDate: date, active: true })
   }, [])
 
-  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLElement>, date: string) => {
+  const handlePointerMove = useCallback((_e: React.PointerEvent<HTMLElement>, date: string) => {
     setDragState(prev => {
       if (!prev.active) return prev
       if (prev.endDate === date) return prev
