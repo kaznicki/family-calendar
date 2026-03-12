@@ -19,3 +19,41 @@
 * {
   box-sizing: border-box;
 }
+
+/* ─── Print utilities ─────────────────────────────────────────────────────── */
+
+@media screen {
+  .print-only { display: none !important; }
+}
+
+@media print {
+  .screen-only { display: none !important; }
+  .print-only { display: block !important; }
+
+  /* 7-column print grid — use fixed % not fr (fr collapses in print engines) */
+  .print-week-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 14%);
+    border-left: 1px solid #e5e7eb;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  /* Prevent page breaks mid-week */
+  .print-week-row {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Week label styling */
+  .print-week-label {
+    font-size: 9px;
+    color: #6b7280;
+    padding: 2px 4px;
+  }
+
+  /* Landscape and margins */
+  @page {
+    size: landscape;
+    margin: 10mm 8mm;
+  }
+}
