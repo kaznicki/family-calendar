@@ -58,14 +58,17 @@ export function DayColumn({
         !bgColor && isSelected ? 'bg-blue-50' : '',
       ].filter(Boolean).join(' ')}
       style={{ backgroundColor: bgColor }}
+      onContextMenu={(e) => {
+        e.preventDefault()
+        setMenuPos({ x: e.clientX, y: e.clientY })
+        setMenuOpen(true)
+      }}
     >
-      {/* Date number header with long-press / right-click support */}
+      {/* Date number header with long-press support (mobile) */}
       <div
-        {...longPress}
-        onContextMenu={(e) => {
-          setMenuPos({ x: e.clientX, y: e.clientY })
-          longPress.onContextMenu(e)
-        }}
+        onPointerDown={longPress.onPointerDown}
+        onPointerUp={longPress.onPointerUp}
+        onPointerLeave={longPress.onPointerLeave}
         className={[
           'text-center text-xs py-0.5 leading-none select-none',
           isToday ? 'font-semibold text-blue-600' : 'text-gray-500',
