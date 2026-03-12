@@ -2,14 +2,14 @@
 gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
-status: defining_requirements
-stopped_at: Milestone v1.1 started — defining requirements
+status: roadmap_ready
+stopped_at: Roadmap created — Phase 4 and Phase 5 defined, ready for plan-phase
 last_updated: "2026-03-12T20:00:00.000Z"
-last_activity: 2026-03-12 — Milestone v1.1 started
+last_activity: 2026-03-12 — v1.1 roadmap created (2 phases, 7 requirements mapped)
 progress:
-  total_phases: 0
+  total_phases: 2
   completed_phases: 0
-  total_plans: 0
+  total_plans: 6
   completed_plans: 0
   percent: 0
 ---
@@ -20,14 +20,14 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
-**Current focus:** Milestone v1.1 — Visual Polish and UX Fixes
+**Current focus:** Milestone v1.1 — Phase 4: Layout Fixes
 
 ## Current Position
 
-Phase: Not started (defining requirements)
-Plan: —
-Status: Defining requirements
-Last activity: 2026-03-12 — Milestone v1.1 started
+Phase: 4 (Layout Fixes)
+Plan: Not started
+Status: Roadmap ready — awaiting plan-phase 4
+Last activity: 2026-03-12 — v1.1 roadmap created
 
 Progress: [░░░░░░░░░░] 0%
 
@@ -45,9 +45,17 @@ Key decisions carried forward from v1.0:
 - alignSelf: start on sticky header div — prevents CSS Grid stretch from breaking position:sticky
 - RecurringFooter uses position:fixed; pb-28 prevents footer overlap with content
 
+### v1.1-specific context
+
+- LAYT-01 is the largest change: slotLayout.ts, WeekRow.tsx, DayColumn.tsx all need refactoring
+- Current multi-day model: slot-0 spanning row above day columns — this is being replaced
+- Target multi-day model: chips render in real slots 1–4 per-day using interval-scheduling algorithm
+- LAYT-02 is a CSS-only fix to CalendarGrid.tsx header alignment
+- Phase 4 must complete before Phase 5 — DayColumn structure changes in Phase 4 affect RDBL-01 rendering
+
 ### Pending Todos
 
-None yet.
+None.
 
 ### Blockers/Concerns
 
@@ -56,5 +64,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-03-12T20:00:00.000Z
-Stopped at: Milestone v1.1 initialized, proceeding to requirements definition
+Stopped at: v1.1 roadmap created — next step is plan-phase 4
 Resume file: None
