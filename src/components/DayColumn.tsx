@@ -1,5 +1,10 @@
+import { useState } from 'react'
 import { isDayWeekend, isDayToday } from '../lib/dates'
+import type { BirthdayEntry } from '../lib/dates'
 import { EventSlot } from './EventSlot'
+import { HolidayMenu } from './HolidayMenu'
+import { markHoliday, unmarkHoliday } from '../lib/eventStore'
+import { useLongPress } from '../lib/useLongPress'
 import { format } from 'date-fns'
 import type { CalendarEvent } from '../lib/people'
 
@@ -10,6 +15,8 @@ interface DayColumnProps {
   isSelected?: boolean
   onPointerDown?: (e: React.PointerEvent<HTMLElement>, date: string) => void
   onPointerMove?: (e: React.PointerEvent<HTMLElement>, date: string) => void
+  isHoliday?: boolean
+  isBirthday?: BirthdayEntry
 }
 
 export function DayColumn({
@@ -19,31 +26,61 @@ export function DayColumn({
   isSelected = false,
   onPointerDown,
   onPointerMove,
+  isHoliday = false,
+  isBirthday,
 }: DayColumnProps) {
   const isWeekend = isDayWeekend(date)
   const isToday = isDayToday(date)
   const isoDate = format(date, 'yyyy-MM-dd')
 
+  const [menuOpen, setMenuOpen] = useState(false)
+  const [menuPos, setMenuPos] = useState({ x: 0, y: 0 })
+
+  const longPress = useLongPress(() => { setMenuOpen(true) })
+
   // Count overflow events for this date
   const overflowCount = events.filter(e => slotMap.get(e.id) === -1).length
+
+  // Background color priority: birthday (gold) > holiday/weekend (gray) > today (blue) > none
+  const bgColor = isBirthday
+    ? 'var(--color-birthday-bg)'
+    : (isHoliday || isWeekend)
+    ? 'var(--color-weekend-bg)'
+    : isToday
+    ? 'var(--color-today-bg)'
+    : undefined
 
   return (
     <div
       data-today={isToday ? 'true' : undefined}
       className={[
         'flex flex-col min-w-0',
-        isWeekend ? 'bg-weekend-bg' : '',
-        isToday ? 'bg-today-bg' : '',
-        isSelected ? 'bg-blue-50' : '',
+        !bgColor && isSelected ? 'bg-blue-50' : '',
       ].filter(Boolean).join(' ')}
+      style={{ backgroundColor: bgColor }}
     >
-      {/* Date number header */}
-      <div className={[
-        'text-center text-xs py-0.5 leading-none',
-        isToday ? 'font-semibold text-blue-600' : 'text-gray-500',
-      ].join(' ')}>
+      {/* Date number header with long-press / right-click support */}
+      <div
+        {...longPress}
+        onContextMenu={(e) => {
+          setMenuPos({ x: e.clientX, y: e.clientY })
+          longPress.onContextMenu(e)
+        }}
+        className={[
+          'text-center text-xs py-0.5 leading-none select-none',
+          isToday ? 'font-semibold text-blue-600' : 'text-gray-500',
+        ].join(' ')}
+        style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } as React.CSSProperties}
+      >
         {format(date, 'd')}
       </div>
+
+      {/* Birthday label (above slot rows, not consuming a slot) */}
+      {isBirthday && (
+        <div className="text-[9px] text-amber-700 text-center leading-none pb-0.5 truncate px-0.5">
+          {isBirthday.name}'s bday
+        </div>
+      )}
 
       {/* Slots 1-4: single-day events (slot 0 is the multi-day row in WeekRow) */}
       {Array.from({ length: 4 }, (_, i) => {
@@ -66,6 +103,17 @@ export function DayColumn({
         <div className="text-[9px] text-gray-400 text-center leading-none pb-0.5">
           +{overflowCount}
         </div>
+      )}
+
+      {/* Holiday context menu */}
+      {menuOpen && (
+        <HolidayMenu
+          isHoliday={!!isHoliday}
+          onMark={() => markHoliday(isoDate)}
+          onUnmark={() => unmarkHoliday(isoDate)}
+          onClose={() => setMenuOpen(false)}
+          anchorPos={menuPos}
+        />
       )}
     </div>
   )

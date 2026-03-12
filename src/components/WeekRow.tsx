@@ -1,7 +1,8 @@
-import type { WeekData } from '../lib/dates'
+import type { WeekData, BirthdayEntry } from '../lib/dates'
+import { isDayHoliday, isDayBirthday } from '../lib/dates'
 import { DayColumn } from './DayColumn'
 import { EventCard } from './EventCard'
-import { useEventsMap } from '../lib/eventStore'
+import { useEventsMap, useHolidaysMap, useBirthdaysMap } from '../lib/eventStore'
 import { computeSlotLayout } from '../lib/slotLayout'
 import type { LayoutEvent } from '../lib/slotLayout'
 import { format, parseISO, getDay, differenceInCalendarDays, max, min } from 'date-fns'
@@ -27,6 +28,9 @@ export function WeekRow({
   onEditEvent,
 }: WeekRowProps) {
   const allEvents = useEventsMap()
+  const holidays = useHolidaysMap()
+  const birthdaysRaw = useBirthdaysMap()
+  const birthdays: BirthdayEntry[] = Object.values(birthdaysRaw).map(v => JSON.parse(v) as BirthdayEntry)
 
   // Collect all events for this week's date range
   const weekEvents: LayoutEvent[] = []
@@ -88,6 +92,8 @@ export function WeekRow({
               events={dayEvents}
               slotMap={slotMap}
               isSelected={isSelected}
+              isHoliday={isDayHoliday(isoDate, holidays)}
+              isBirthday={isDayBirthday(date, birthdays)}
               onPointerDown={onPointerDown}
               onPointerMove={onPointerMove}
             />
