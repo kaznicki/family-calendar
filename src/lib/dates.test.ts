@@ -117,11 +117,13 @@ describe('getPrintWeeks', () => {
     expect(weeks[0].weekEnd.getTime()).toBeGreaterThanOrEqual(today.getTime())
   })
 
-  it('tenth element is 9 weeks after the first element', () => {
+  it('tenth element is 9 weeks (63 days) after the first element', () => {
     const weeks = getPrintWeeks()
-    const firstStart = weeks[0].weekStart.getTime()
-    const tenthStart = weeks[9].weekStart.getTime()
-    const nineWeeksMs = 9 * 7 * 24 * 60 * 60 * 1000
-    expect(tenthStart - firstStart).toBe(nineWeeksMs)
+    const first = weeks[0].weekStart
+    const tenth = weeks[9].weekStart
+    // Compare calendar dates (not raw ms) to avoid DST edge cases
+    const msPerDay = 24 * 60 * 60 * 1000
+    const daysDiff = Math.round((tenth.getTime() - first.getTime()) / msPerDay)
+    expect(daysDiff).toBe(63) // 9 weeks × 7 days
   })
 })

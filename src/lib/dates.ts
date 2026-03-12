@@ -7,6 +7,9 @@ import {
   isToday,
   isSaturday,
   isSunday,
+  getMonth,
+  getDate,
+  isThisWeek,
 } from 'date-fns'
 
 export interface WeekData {
@@ -46,4 +49,47 @@ export function isDayWeekend(date: Date): boolean {
 
 export function isDayToday(date: Date): boolean {
   return isToday(date)
+}
+
+// ─── Phase 3: Birthday entry type ─────────────────────────────────────────────
+
+export interface BirthdayEntry {
+  id: string
+  name: string
+  month: number  // 1-12
+  day: number    // 1-31
+}
+
+// ─── Phase 3: Holiday helper ───────────────────────────────────────────────────
+
+/**
+ * Returns true if the given ISO date string appears as a key in the holidays map.
+ * The map uses key presence (value = true) to mark holidays.
+ */
+export function isDayHoliday(isoDate: string, holidays: Record<string, boolean>): boolean {
+  return !!holidays[isoDate]
+}
+
+// ─── Phase 3: Birthday helper ──────────────────────────────────────────────────
+
+/**
+ * Returns the BirthdayEntry whose month+day matches the given date, or undefined.
+ * Year-agnostic: a birthday for March 17 matches any year.
+ */
+export function isDayBirthday(date: Date, birthdays: BirthdayEntry[]): BirthdayEntry | undefined {
+  return birthdays.find(b => b.month === getMonth(date) + 1 && b.day === getDate(date))
+}
+
+// ─── Phase 3: Print weeks slicer ──────────────────────────────────────────────
+
+/**
+ * Returns the 10 consecutive WeekData entries starting from the current week.
+ * Uses generateWeeks() range (6 months back + 18 months forward), finds the
+ * current week, and slices 10 entries forward.
+ */
+export function getPrintWeeks(today: Date = new Date()): WeekData[] {
+  const allWeeks = generateWeeks(today)
+  const currentIdx = allWeeks.findIndex(w => isThisWeek(w.weekStart, { weekStartsOn: 0 }))
+  if (currentIdx === -1) return allWeeks.slice(0, 10)
+  return allWeeks.slice(currentIdx, currentIdx + 10)
 }

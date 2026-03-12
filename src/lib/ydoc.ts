@@ -21,3 +21,11 @@ export const recurringMap = ydoc.getMap<string>('recurring')
 // Value is JSON string: { label: string; colorToken: string }
 // The 7 default people from people.ts are static — rosterMap only stores additions
 export const rosterMap = ydoc.getMap<string>('roster')
+
+// Holidays map: keys are ISO date strings ("2026-03-17"), value is boolean true.
+// A key's presence marks the day as a holiday/vacation; absence = not a holiday.
+export const holidaysMap = ydoc.getMap<boolean>('holidays')
+
+// Birthdays map: keys are person id strings, value is JSON string of BirthdayEntry.
+// Stores recurring birthday/anniversary entries that highlight a day each year.
+export const birthdaysMap = ydoc.getMap<string>('birthdays')
