@@ -50,31 +50,33 @@ export function CalendarGrid() {
   }
 
   return (
-    // Outer container: full viewport height, no overflow (body div handles scroll)
+    // Outer container: full viewport height, no overflow (scroll div handles scroll)
     <div className="flex flex-col h-screen overflow-hidden">
 
-      {/* Sticky day-name header strip */}
-      {/* align-self: start is critical — prevents CSS Grid stretch from breaking sticky */}
-      <div
-        className="grid grid-cols-7 sticky top-0 z-10 bg-white border-b border-gray-100"
-        style={{ alignSelf: 'start' }}
-      >
-        {DAY_NAMES_SHORT.map((short, i) => (
-          <div key={i} className="text-center py-1">
-            {/* Short on mobile (always visible), full on sm+ */}
-            <span className="sm:hidden text-[11px] text-gray-500">{short}</span>
-            <span className="hidden sm:inline text-xs text-gray-500">{DAY_NAMES_FULL[i]}</span>
-          </div>
-        ))}
-      </div>
-
-      {/* Scrollable body — only this element scrolls */}
+      {/* Scrollable body — takes full flex space; contains both sticky header and week rows */}
       {/* overflow-y: auto here; NO overflow: hidden on any ancestor */}
       {/* pb-28: prevents last calendar week from being hidden behind the fixed RecurringFooter */}
       <div
         className="overflow-y-auto flex-1 pb-28"
         onPointerUp={dragState.active ? handlePointerUpOnGrid : undefined}
       >
+        {/* Sticky day-name header strip — INSIDE scroll container so it shares the same width */}
+        {/* Both header and WeekRows have the same container width → columns can't drift */}
+        {/* align-self: start is critical — prevents CSS Grid stretch from breaking sticky */}
+        <div
+          className="grid grid-cols-7 sticky top-0 z-10 bg-white border-b border-gray-100"
+          style={{ alignSelf: 'start' }}
+        >
+          {DAY_NAMES_SHORT.map((short, i) => (
+            <div key={i} className="text-center py-2">
+              {/* Short on mobile (always visible), full on sm+ */}
+              <span className="sm:hidden text-[11px] text-gray-500 font-medium">{short}</span>
+              <span className="hidden sm:inline text-xs text-gray-500 font-medium">{DAY_NAMES_FULL[i]}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Week rows follow immediately in the same container */}
         {weeks.map((week) => (
           <WeekRow
             key={week.weekStart.toISOString()}
