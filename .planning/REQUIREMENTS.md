@@ -25,14 +25,14 @@
 
 - [x] **PEPL-01**: Each family member is associated with a distinct color, applied to their events
 - [x] **PEPL-02**: User assigns a person/color to an event with a single tap or click when adding or editing
-- [ ] **PEPL-03**: Birthdays and anniversaries display in a dedicated special color distinct from person colors
+- [x] **PEPL-03**: Birthdays and anniversaries display in a dedicated special color distinct from person colors
 - [x] **PEPL-04**: User can add or remove family members and change their assigned colors (configurable roster)
 
 ### Visual Markers
 
 - [x] **VISU-01**: Weekend columns (Saturday and Sunday) display with a gray background
-- [ ] **VISU-02**: US public holidays display with a gray background
-- [ ] **VISU-03**: School vacation weeks display with a gray background
+- [x] **VISU-02**: US public holidays display with a gray background
+- [x] **VISU-03**: School vacation weeks display with a gray background
 - [x] **VISU-04**: The current day column is highlighted to make today easy to find
 
 ### Recurring Schedule
@@ -47,7 +47,7 @@
 
 ### Print
 
-- [ ] **PRNT-01**: User can print the next ~10 weeks in the grid layout via a print button in the app
+- [x] **PRNT-01**: User can print the next ~10 weeks in the grid layout via a print button in the app
 
 ## v2 Requirements
 
@@ -100,17 +100,17 @@ Which phases cover which requirements. Updated during roadmap creation.
 | EVNT-06 | Phase 2 | Complete |
 | PEPL-01 | Phase 2 | Complete |
 | PEPL-02 | Phase 2 | Complete |
-| PEPL-03 | Phase 3 | Pending |
+| PEPL-03 | Phase 3 | Complete |
 | PEPL-04 | Phase 2 | Complete |
 | VISU-01 | Phase 1 | Complete |
-| VISU-02 | Phase 3 | Pending |
-| VISU-03 | Phase 3 | Pending |
+| VISU-02 | Phase 3 | Complete |
+| VISU-03 | Phase 3 | Complete |
 | VISU-04 | Phase 1 | Complete |
 | RECU-01 | Phase 2 | Complete |
 | RECU-02 | Phase 2 | Complete |
 | SHRG-01 | Phase 1 | Complete |
 | SHRG-02 | Phase 2 | Complete |
-| PRNT-01 | Phase 3 | Pending |
+| PRNT-01 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 23 total

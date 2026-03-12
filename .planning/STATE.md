@@ -1,19 +1,18 @@
 ---
-gsd_state_version: 1.0
+gsd_state_version: 1
 milestone: v1.0
 milestone_name: milestone
 status: planning
 stopped_at: Phase 3 context gathered
-last_updated: "2026-03-12T14:06:38.232Z"
+last_updated: "2026-03-12T14:34:56.295Z"
 last_activity: 2026-03-11 — Phase 2 human verification passed, bug fix applied
 progress:
   total_phases: 3
   completed_phases: 2
-  total_plans: 14
-  completed_plans: 14
+  total_plans: 19
+  completed_plans: 15
   percent: 67
 ---
-
 # Project State
 
 ## Project Reference
@@ -42,8 +41,7 @@ Progress: [██████░░░░] 67%
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
-|-------|-------|-------|----------|
-| - | - | - | - |
+| --- | --- | --- | --- |
 
 **Recent Trend:**
 - Last 5 plans: —
@@ -93,6 +91,9 @@ Recent decisions affecting current work:
 - [Phase 02-events-and-sync]: RecurringFooter uses position:fixed so it stays visible during grid scroll; pb-28 prevents footer overlap
 - [Phase 02-events-and-sync]: EventPopover reused for recurring entries — onSave ignores personId from popover (row's personId is canonical)
 - [Phase 02-events-and-sync]: Never use dynamic bg-${token} Tailwind classes for person colors — always use style={{ backgroundColor: `var(--color-${token})` }} (Tailwind v4 purges dynamic class names)
+- [Phase 03-visual-polish-and-print]: CRUD helpers for holidays/birthdays take optional (map, doc) params matching addEvent/addPerson pattern — enables isolated unit testing
+- [Phase 03-visual-polish-and-print]: getPrintWeeks uses isThisWeek(weekStart, {weekStartsOn:0}) to locate current week in generateWeeks() output
+- [Phase 03-visual-polish-and-print]: DST-safe test: getPrintWeeks span uses Math.round(ms/dayMs) not raw ms equality — March DST transition causes 1-hour mismatch in exact comparison
 
 ### Pending Todos
 
