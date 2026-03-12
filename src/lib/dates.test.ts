@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest'
-import { generateWeeks, formatWeekRange, isDayWeekend } from './dates'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { generateWeeks, formatWeekRange, isDayWeekend, isDayHoliday, isDayBirthday, getPrintWeeks, type BirthdayEntry } from './dates'
 
 describe('generateWeeks', () => {
   it('returns ~104 weeks for a 24-month range', () => {
@@ -56,5 +56,72 @@ describe('isDayWeekend', () => {
   })
   it('returns false for Monday', () => {
     expect(isDayWeekend(new Date(2026, 2, 16))).toBe(false) // Mon
+  })
+})
+
+describe('isDayHoliday', () => {
+  it('returns true when isoDate key exists in holidays map', () => {
+    expect(isDayHoliday('2026-03-17', { '2026-03-17': true })).toBe(true)
+  })
+
+  it('returns false when holidays map is empty', () => {
+    expect(isDayHoliday('2026-03-17', {})).toBe(false)
+  })
+
+  it('returns false when isoDate key does not match any holiday', () => {
+    expect(isDayHoliday('2026-03-17', { '2026-03-18': true })).toBe(false)
+  })
+})
+
+describe('isDayBirthday', () => {
+  const birthdays: BirthdayEntry[] = [
+    { id: 'x', name: 'Joy', month: 3, day: 17 },
+  ]
+
+  it('returns the entry when month and day match', () => {
+    expect(isDayBirthday(new Date(2026, 2, 17), birthdays)).toEqual({
+      id: 'x', name: 'Joy', month: 3, day: 17,
+    })
+  })
+
+  it('is year-agnostic — still matches in a different year', () => {
+    expect(isDayBirthday(new Date(2024, 2, 17), birthdays)).toEqual({
+      id: 'x', name: 'Joy', month: 3, day: 17,
+    })
+  })
+
+  it('returns undefined when day does not match', () => {
+    expect(isDayBirthday(new Date(2026, 2, 18), birthdays)).toBeUndefined()
+  })
+})
+
+describe('getPrintWeeks', () => {
+  beforeEach(() => {
+    // Pin system time to 2026-03-12 (Thursday — mid-week for determinism)
+    vi.useFakeTimers()
+    vi.setSystemTime(new Date(2026, 2, 12))
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('returns exactly 10 weeks', () => {
+    expect(getPrintWeeks()).toHaveLength(10)
+  })
+
+  it('first element contains today (current week start on or before today, end on or after today)', () => {
+    const weeks = getPrintWeeks()
+    const today = new Date(2026, 2, 12)
+    expect(weeks[0].weekStart.getTime()).toBeLessThanOrEqual(today.getTime())
+    expect(weeks[0].weekEnd.getTime()).toBeGreaterThanOrEqual(today.getTime())
+  })
+
+  it('tenth element is 9 weeks after the first element', () => {
+    const weeks = getPrintWeeks()
+    const firstStart = weeks[0].weekStart.getTime()
+    const tenthStart = weeks[9].weekStart.getTime()
+    const nineWeeksMs = 9 * 7 * 24 * 60 * 60 * 1000
+    expect(tenthStart - firstStart).toBe(nineWeeksMs)
   })
 })
