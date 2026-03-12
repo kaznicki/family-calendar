@@ -32,7 +32,8 @@ export function CalendarGrid() {
   const [multiDayPopover, setMultiDayPopover] = useState<{
     startDate: string
     endDate: string
-    anchorEl: HTMLElement | null
+    x: number
+    y: number
   } | null>(null)
 
   function handlePointerUpOnGrid(e: React.PointerEvent<HTMLElement>) {
@@ -41,7 +42,8 @@ export function CalendarGrid() {
       setMultiDayPopover({
         startDate: result.startDate,
         endDate: result.endDate,
-        anchorEl: e.currentTarget,
+        x: e.clientX,
+        y: e.clientY,
       })
     }
     // 'click' type is handled by EventSlot's own onClick
@@ -92,7 +94,11 @@ export function CalendarGrid() {
       {/* Multi-day create popover (opened after drag completes) */}
       {multiDayPopover && (
         <EventPopover
-          anchorEl={multiDayPopover.anchorEl}
+          anchorEl={{
+            getBoundingClientRect: () => DOMRect.fromRect({
+              x: multiDayPopover.x, y: multiDayPopover.y, width: 0, height: 0,
+            }),
+          }}
           isOpen={true}
           onClose={() => setMultiDayPopover(null)}
           onSave={(data) => {

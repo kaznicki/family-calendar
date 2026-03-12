@@ -12,8 +12,10 @@ import {
 } from '@floating-ui/react'
 import { PEOPLE } from '../lib/people'
 
+type AnchorEl = HTMLElement | { getBoundingClientRect(): DOMRect } | null
+
 export interface EventPopoverProps {
-  anchorEl: HTMLElement | null
+  anchorEl: AnchorEl
   isOpen: boolean
   onClose: () => void
   onSave: (data: { title: string; personId: string | null; startTime?: string }) => void
