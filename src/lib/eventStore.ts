@@ -1,7 +1,8 @@
 import { useSyncExternalStore } from 'react'
 import * as Y from 'yjs'
-import { eventsMap as moduleEventsMap, recurringMap, rosterMap as moduleRosterMap, ydoc } from './ydoc'
+import { eventsMap as moduleEventsMap, recurringMap, rosterMap as moduleRosterMap, holidaysMap as moduleHolidaysMap, birthdaysMap as moduleBirthdaysMap, ydoc } from './ydoc'
 import { PEOPLE, type CalendarEvent, type Person } from './people'
+import type { BirthdayEntry } from './dates'
 
 // ─── Snapshot cache (module scope — never inside hook) ────────────────────────
 // Caching at module scope ensures stable reference identity between renders
@@ -131,3 +132,75 @@ const getRosterSnapshot = (): Record<string, string> => {
 }
 
 export const useRosterMap = () => useSyncExternalStore(rosterSubscribe, getRosterSnapshot)
+
+// ─── useHolidaysMap ───────────────────────────────────────────────────────────
+
+let cachedHolidaysSnapshot: Record<string, boolean> = {}
+
+const holidaysSubscribe = (cb: () => void) => {
+  moduleHolidaysMap.observeDeep(cb)
+  return () => moduleHolidaysMap.unobserveDeep(cb)
+}
+
+const getHolidaysSnapshot = (): Record<string, boolean> => {
+  const fresh = JSON.stringify(moduleHolidaysMap.toJSON())
+  const cached = JSON.stringify(cachedHolidaysSnapshot)
+  if (fresh !== cached) cachedHolidaysSnapshot = JSON.parse(fresh)
+  return cachedHolidaysSnapshot
+}
+
+export const useHolidaysMap = () => useSyncExternalStore(holidaysSubscribe, getHolidaysSnapshot)
+
+// ─── Holidays CRUD helpers ─────────────────────────────────────────────────────
+
+export function markHoliday(
+  isoDate: string,
+  map: Y.Map<boolean> = moduleHolidaysMap,
+  doc: Y.Doc = ydoc,
+): void {
+  doc.transact(() => { map.set(isoDate, true) })
+}
+
+export function unmarkHoliday(
+  isoDate: string,
+  map: Y.Map<boolean> = moduleHolidaysMap,
+  doc: Y.Doc = ydoc,
+): void {
+  doc.transact(() => { map.delete(isoDate) })
+}
+
+// ─── useBirthdaysMap ──────────────────────────────────────────────────────────
+
+let cachedBirthdaysSnapshot: Record<string, string> = {}
+
+const birthdaysSubscribe = (cb: () => void) => {
+  moduleBirthdaysMap.observeDeep(cb)
+  return () => moduleBirthdaysMap.unobserveDeep(cb)
+}
+
+const getBirthdaysSnapshot = (): Record<string, string> => {
+  const fresh = JSON.stringify(moduleBirthdaysMap.toJSON())
+  const cached = JSON.stringify(cachedBirthdaysSnapshot)
+  if (fresh !== cached) cachedBirthdaysSnapshot = JSON.parse(fresh)
+  return cachedBirthdaysSnapshot
+}
+
+export const useBirthdaysMap = () => useSyncExternalStore(birthdaysSubscribe, getBirthdaysSnapshot)
+
+// ─── Birthdays CRUD helpers ────────────────────────────────────────────────────
+
+export function addBirthday(
+  entry: BirthdayEntry,
+  map: Y.Map<string> = moduleBirthdaysMap,
+  doc: Y.Doc = ydoc,
+): void {
+  doc.transact(() => { map.set(entry.id, JSON.stringify(entry)) })
+}
+
+export function removeBirthday(
+  id: string,
+  map: Y.Map<string> = moduleBirthdaysMap,
+  doc: Y.Doc = ydoc,
+): void {
+  doc.transact(() => { map.delete(id) })
+}
