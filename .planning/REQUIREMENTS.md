@@ -1,9 +1,10 @@
 # Requirements: Family Calendar
 
 **Defined:** 2026-03-10
+**Updated:** 2026-03-12 (v1.1 requirements added)
 **Core Value:** Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
 
-## v1 Requirements
+## v1.0 Requirements (Complete)
 
 ### Grid & Layout
 
@@ -48,6 +49,24 @@
 ### Print
 
 - [x] **PRNT-01**: User can print the next ~10 weeks in the grid layout via a print button in the app
+
+## v1.1 Requirements
+
+### Layout Fixes
+
+- [ ] **LAYT-01**: Multi-day event chips render inside day column slots (slots 1–4) rather than a separate spanning row above the columns
+- [ ] **LAYT-02**: Sticky day-name header (Sun–Sat) columns align with the grid columns below it
+
+### Readability & Typography
+
+- [ ] **RDBL-01**: Date numbers are bold and visually prominent; today's date has a circular highlight
+- [ ] **RDBL-02**: Week range labels (e.g., "May 11–17") are large and high-contrast — immediately readable as week anchors
+- [ ] **RDBL-03**: Recurring schedule footer day-of-week column headers are legible and prominent
+
+### Settings Panel
+
+- [ ] **STNG-01**: Settings modal action buttons have sufficient contrast (no light-grey-on-white text)
+- [ ] **STNG-02**: "Add Person" button label reads "Add Person or Group"
 
 ## v2 Requirements
 
@@ -111,12 +130,20 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SHRG-01 | Phase 1 | Complete |
 | SHRG-02 | Phase 2 | Complete |
 | PRNT-01 | Phase 3 | Complete |
+| LAYT-01 | Phase 4 | Pending |
+| LAYT-02 | Phase 4 | Pending |
+| RDBL-01 | Phase 5 | Pending |
+| RDBL-02 | Phase 5 | Pending |
+| RDBL-03 | Phase 5 | Pending |
+| STNG-01 | Phase 5 | Pending |
+| STNG-02 | Phase 5 | Pending |
 
 **Coverage:**
-- v1 requirements: 23 total
-- Mapped to phases: 23
+- v1.0 requirements: 23 total — all Complete ✓
+- v1.1 requirements: 7 total
+- Mapped to phases: 7
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-03-10*
-*Last updated: 2026-03-10 after roadmap creation*
+*Last updated: 2026-03-12 after v1.1 milestone start*
