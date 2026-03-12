@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [ ] **Phase 1: Grid Scaffold** - Renderable 7-column calendar grid with date math, Yjs schema, and secure link-based access
 - [ ] **Phase 2: Events and Sync** - Full event CRUD, person color coding, recurring schedule, and real-time collaborative sync
-- [ ] **Phase 3: Visual Polish and Print** - Holiday/vacation shading, birthday colors, and the fridge-ready print view
+- [x] **Phase 3: Visual Polish and Print** - Holiday/vacation shading, birthday colors, and the fridge-ready print view (completed 2026-03-12)
 
 ## Phase Details
 
@@ -86,4 +86,4 @@ Phases execute in numeric order: 1 → 2 → 3
 | --- | --- | --- | --- |
 | 1. Grid Scaffold | 5/5 | Complete | 2026-03-10 |
 | 2. Events and Sync | 8/9 | In Progress|  |
-| 3. Visual Polish and Print | 2/5 | In Progress|  |
+| 3. Visual Polish and Print | 5/5 | Complete   | 2026-03-12 |

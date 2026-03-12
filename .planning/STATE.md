@@ -3,14 +3,14 @@ gsd_state_version: 1
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-03-PLAN.md — Birthdays & Anniversaries CRUD in SettingsPanel
-last_updated: "2026-03-12T14:39:48.259Z"
+stopped_at: Completed 03-05-PLAN.md — Phase 3 human verification approved, all visual features confirmed
+last_updated: "2026-03-12T18:41:31.221Z"
 last_activity: 2026-03-11 — Phase 2 human verification passed, bug fix applied
 progress:
   total_phases: 3
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 19
-  completed_plans: 17
+  completed_plans: 19
   percent: 67
 ---
 # Project State
@@ -96,6 +96,7 @@ Recent decisions affecting current work:
 - [Phase 03-visual-polish-and-print]: getPrintWeeks uses isThisWeek(weekStart, {weekStartsOn:0}) to locate current week in generateWeeks() output
 - [Phase 03-visual-polish-and-print]: DST-safe test: getPrintWeeks span uses Math.round(ms/dayMs) not raw ms equality — March DST transition causes 1-hour mismatch in exact comparison
 - [Phase 03-visual-polish-and-print]: Birthday section appended after Add person footer as new border-t section — no tabs, no structural changes to existing layout
+- [Phase 03-visual-polish-and-print]: onContextMenu must be on outer DayColumn container div — right-click anywhere in column must trigger holiday menu, not just the date number
 
 ### Pending Todos
 
@@ -107,6 +108,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-12T14:39:24.285Z
-Stopped at: Completed 03-03-PLAN.md — Birthdays & Anniversaries CRUD in SettingsPanel
+Last session: 2026-03-12T18:41:31.219Z
+Stopped at: Completed 03-05-PLAN.md — Phase 3 human verification approved, all visual features confirmed
 Resume file: None
