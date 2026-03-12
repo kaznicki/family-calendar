@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { PEOPLE } from '../lib/people'
-import { getPeople, addPerson, removePerson, useRosterMap } from '../lib/eventStore'
+import { getPeople, addPerson, removePerson, useRosterMap, useBirthdaysMap, addBirthday, removeBirthday } from '../lib/eventStore'
+import type { BirthdayEntry } from '../lib/dates'
 
 interface SettingsPanelProps {
   onClose: () => void
@@ -39,6 +40,23 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
     })
     setName('')
     setSelectedToken(COLOR_TOKENS[7])
+  }
+
+  // Birthdays & Anniversaries
+  const birthdaysRaw = useBirthdaysMap()
+  const birthdayEntries: BirthdayEntry[] = Object.values(birthdaysRaw).map(v => JSON.parse(v) as BirthdayEntry)
+
+  const [bdName, setBdName] = useState('')
+  const [bdMonth, setBdMonth] = useState(1)
+  const [bdDay, setBdDay] = useState(1)
+
+  const handleAddBirthday = () => {
+    const trimmed = bdName.trim()
+    if (!trimmed) return
+    addBirthday({ id: crypto.randomUUID().slice(0, 8), name: trimmed, month: bdMonth, day: bdDay })
+    setBdName('')
+    setBdMonth(1)
+    setBdDay(1)
   }
 
   return (
@@ -112,6 +130,71 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
           className="w-full text-sm bg-gray-800 text-white rounded px-3 py-1.5 hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed"
         >
           Add
+        </button>
+      </div>
+
+      {/* Birthdays & Anniversaries section */}
+      <div className="border-t border-gray-200 px-4 py-3 space-y-2">
+        <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Birthdays & Anniversaries</p>
+
+        {/* List existing entries */}
+        <div className="space-y-1">
+          {birthdayEntries.map(entry => (
+            <div key={entry.id} className="flex items-center gap-2">
+              <span className="flex-1 text-sm text-gray-700">
+                {entry.name} — {entry.month}/{entry.day}
+              </span>
+              <button
+                type="button"
+                onClick={() => removeBirthday(entry.id)}
+                className="text-gray-400 hover:text-red-500 text-lg leading-none"
+                aria-label={`Remove ${entry.name}'s birthday`}
+              >
+                ×
+              </button>
+            </div>
+          ))}
+          {birthdayEntries.length === 0 && (
+            <p className="text-xs text-gray-400">No birthdays added yet.</p>
+          )}
+        </div>
+
+        {/* Add birthday form */}
+        <input
+          type="text"
+          value={bdName}
+          onChange={e => setBdName(e.target.value)}
+          onKeyDown={e => { if (e.key === 'Enter') handleAddBirthday() }}
+          placeholder="Name"
+          className="w-full text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-gray-400"
+        />
+        <div className="flex gap-1 items-center">
+          <label className="text-xs text-gray-500 w-12">Month</label>
+          <input
+            type="number"
+            min={1}
+            max={12}
+            value={bdMonth}
+            onChange={e => setBdMonth(Number(e.target.value))}
+            className="w-14 text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-gray-400"
+          />
+          <label className="text-xs text-gray-500 w-6">Day</label>
+          <input
+            type="number"
+            min={1}
+            max={31}
+            value={bdDay}
+            onChange={e => setBdDay(Number(e.target.value))}
+            className="w-14 text-sm border border-gray-300 rounded px-2 py-1 focus:outline-none focus:ring-1 focus:ring-gray-400"
+          />
+        </div>
+        <button
+          type="button"
+          onClick={handleAddBirthday}
+          disabled={!bdName.trim()}
+          className="w-full text-sm bg-gray-800 text-white rounded px-3 py-1.5 hover:bg-gray-700 disabled:opacity-40 disabled:cursor-not-allowed"
+        >
+          Add Birthday
         </button>
       </div>
     </div>
