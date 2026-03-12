@@ -85,12 +85,12 @@ Plans:
   1. A multi-day event chip appears inside the day-column slot rows at the same vertical position across all days it spans — not in a separate row floating above the columns
   2. Other single-day events in the same week stack into slots that correctly account for multi-day chip occupancy, with no visual overlap
   3. The Sun–Sat day-name header row is horizontally aligned with the grid columns below it on both mobile and desktop viewports
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Refactor slotLayout.ts — per-day slot allocation replacing the slot-0 spanning row model
-- [ ] 04-02: Update WeekRow.tsx and DayColumn.tsx to render multi-day chips in slot positions
-- [ ] 04-03: Fix CalendarGrid.tsx header alignment CSS
+- [ ] 04-01-PLAN.md — slotLayout.ts TDD: interval-graph coloring replacing slot-0 spanning row model (wave 1)
+- [ ] 04-02-PLAN.md — WeekRow + DayColumn: remove multi-day row, render all chips in slots 1–4 (wave 2)
+- [ ] 04-03-PLAN.md — CalendarGrid.tsx: sticky header inside scroll container for column alignment (wave 1)
 
 #### Phase 5: Visual and Copy Polish
 **Goal**: Date numbers, week labels, and recurring footer headers are immediately readable without squinting, settings modal buttons have sufficient contrast, and one copy label is corrected — completing the v1.1 polish pass.
