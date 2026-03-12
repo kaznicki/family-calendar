@@ -68,7 +68,14 @@ Plans:
   1. US public holidays and school vacation weeks display with a gray background visually distinct from normal weekdays
   2. Birthdays and anniversaries appear in a dedicated special color that is visually distinct from all person colors
   3. User clicks a print button and the browser print dialog produces a clean grid covering the next ~10 weeks with no columns collapsing, no content overflowing, and no page-break artifacts
-**Plans**: TBD
+**Plans**: 5 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Data layer: ydoc.ts holidaysMap/birthdaysMap, eventStore.ts hooks + CRUD, dates.ts helpers, useLongPress hook, CSS token
+- [ ] 03-02-PLAN.md — Holiday/birthday grid rendering: HolidayMenu, DayColumn + WeekRow updates
+- [ ] 03-03-PLAN.md — Birthday CRUD in SettingsPanel: Birthdays & Anniversaries section
+- [ ] 03-04-PLAN.md — Print view: PrintGrid component, @media print CSS, print button in App.tsx
+- [ ] 03-05-PLAN.md — Human verification checkpoint: holiday toggle, birthday display, print layout
 
 ## Progress
 
@@ -79,4 +86,4 @@ Phases execute in numeric order: 1 → 2 → 3
 | --- | --- | --- | --- |
 | 1. Grid Scaffold | 5/5 | Complete | 2026-03-10 |
 | 2. Events and Sync | 8/9 | In Progress|  |
-| 3. Visual Polish and Print | 0/TBD | Not started | - |
+| 3. Visual Polish and Print | 0/5 | Not started | - |
