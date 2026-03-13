@@ -17,6 +17,7 @@ interface DayColumnProps {
   onPointerMove?: (e: React.PointerEvent<HTMLElement>, date: string) => void
   isHoliday?: boolean
   isBirthday?: BirthdayEntry
+  onEditEvent?: (event: CalendarEvent) => void
 }
 
 export function DayColumn({
@@ -28,6 +29,7 @@ export function DayColumn({
   onPointerMove,
   isHoliday = false,
   isBirthday,
+  onEditEvent: _onEditEvent,
 }: DayColumnProps) {
   const isWeekend = isDayWeekend(date)
   const isToday = isDayToday(date)
