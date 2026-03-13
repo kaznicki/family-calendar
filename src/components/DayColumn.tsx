@@ -71,13 +71,18 @@ export function DayColumn({
         onPointerDown={longPress.onPointerDown}
         onPointerUp={longPress.onPointerUp}
         onPointerLeave={longPress.onPointerLeave}
-        className={[
-          'text-center text-xs py-0.5 leading-none select-none',
-          isToday ? 'font-semibold text-blue-600' : 'text-gray-500',
-        ].join(' ')}
+        className="text-center py-0.5 leading-none select-none flex items-center justify-center"
         style={{ WebkitTouchCallout: 'none', WebkitUserSelect: 'none', userSelect: 'none' } as React.CSSProperties}
       >
-        {format(date, 'd')}
+        {isToday ? (
+          <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-blue-600 text-white text-xs font-bold leading-none">
+            {format(date, 'd')}
+          </span>
+        ) : (
+          <span className="text-xs font-bold text-gray-700">
+            {format(date, 'd')}
+          </span>
+        )}
       </div>
 
       {/* Birthday label (above slot rows, not consuming a slot) */}
