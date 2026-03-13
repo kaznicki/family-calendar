@@ -1,19 +1,18 @@
 ---
-gsd_state_version: 1.0
+gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
-status: Roadmap ready — awaiting plan-phase 4
-stopped_at: Completed 04-02-PLAN.md — multi-day chips in slot rows, LAYT-01 done
-last_updated: "2026-03-13T13:11:50.868Z"
-last_activity: 2026-03-12 — v1.1 roadmap created
+status: Phase 4 complete — ready to plan Phase 5
+stopped_at: Phase 4 fully executed (04-01, 04-02, 04-03 + VERIFICATION) — next is plan-phase 5
+last_updated: "2026-03-13T14:00:00.000Z"
+last_activity: 2026-03-13 — Phase 4 Layout Fixes completed
 progress:
   total_phases: 5
   completed_phases: 4
-  total_plans: 22
+  total_plans: 25
   completed_plans: 22
-  percent: 0
+  percent: 80
 ---
-
 # Project State
 
 ## Project Reference
@@ -21,16 +20,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-03-12)
 
 **Core value:** Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
-**Current focus:** Milestone v1.1 — Phase 4: Layout Fixes
+**Current focus:** Milestone v1.1 — Phase 5: Visual and Copy Polish
 
 ## Current Position
 
-Phase: 4 (Layout Fixes)
+Phase: 5 (Visual and Copy Polish)
 Plan: Not started
-Status: Roadmap ready — awaiting plan-phase 4
-Last activity: 2026-03-12 — v1.1 roadmap created
+Status: Phase 4 complete — ready to plan Phase 5
+Last activity: 2026-03-13 — Phase 4 Layout Fixes completed
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [████████░░] 80%
 
 ## Accumulated Context
 
