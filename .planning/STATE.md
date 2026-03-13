@@ -3,14 +3,14 @@ gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
 status: planning
-stopped_at: Completed 05-01-PLAN.md — RDBL-01 bold dates and today circular badge in DayColumn
-last_updated: "2026-03-13T13:33:54.583Z"
+stopped_at: Completed 05-02-PLAN.md — RDBL-02 and RDBL-03 typography improvements done
+last_updated: "2026-03-13T14:58:01.995Z"
 last_activity: 2026-03-13 — Phase 4 Layout Fixes completed
 progress:
   total_phases: 5
-  completed_phases: 4
+  completed_phases: 5
   total_plans: 25
-  completed_plans: 24
+  completed_plans: 25
   percent: 80
 ---
 # Project State
@@ -48,6 +48,8 @@ Key decisions carried forward from v1.0:
 - [Phase 04-layout-fixes]: Interval-graph coloring: sort by start date/duration descending, greedily assign first non-overlapping slot 1–4
 - [Phase 04-layout-fixes]: Pass full weekEvents to DayColumn instead of allEvents[isoDate] — multi-day events keyed by start date only
 - [Phase 05-01]: w-5 h-5 badge size (20px) fits two-digit dates at text-xs within 53px column; bg-blue-600 used directly as standard Tailwind palette class
+- [Phase 05-visual-and-copy-polish]: Remove col-span-7 from WeekRow week label — div is not a grid child, class was a no-op
+- [Phase 05-visual-and-copy-polish]: text-xs chosen for RecurringFooter day headers — minimum legible size on mobile; content cells stay text-[9px] as compact data cells
 
 ### v1.1-specific context
 
@@ -67,6 +69,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-13T13:33:54.567Z
-Stopped at: Completed 05-01-PLAN.md — RDBL-01 bold dates and today circular badge in DayColumn
+Last session: 2026-03-13T13:35:17.458Z
+Stopped at: Completed 05-02-PLAN.md — RDBL-02 and RDBL-03 typography improvements done
 Resume file: None
