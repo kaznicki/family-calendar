@@ -47,7 +47,7 @@ export function WeekRow({
   return (
     <div ref={isCurrentWeek ? todayRef : undefined}>
       {/* Week-range label */}
-      <div className="text-[10px] text-gray-400 px-1 pt-1 col-span-7">
+      <div className="text-sm font-semibold text-gray-700 px-1 pt-1">
         {week.label}
       </div>
 
