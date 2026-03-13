@@ -2,15 +2,15 @@
 gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
-status: roadmap_ready
-stopped_at: Roadmap created — Phase 4 and Phase 5 defined, ready for plan-phase
-last_updated: "2026-03-12T20:00:00.000Z"
-last_activity: 2026-03-12 — v1.1 roadmap created (2 phases, 7 requirements mapped)
+status: Roadmap ready — awaiting plan-phase 4
+stopped_at: "04-03 checkpoint: Task 1 complete, awaiting human verification of header alignment"
+last_updated: "2026-03-13T11:59:34.849Z"
+last_activity: 2026-03-12 — v1.1 roadmap created
 progress:
-  total_phases: 2
-  completed_phases: 0
-  total_plans: 6
-  completed_plans: 0
+  total_phases: 5
+  completed_phases: 3
+  total_plans: 22
+  completed_plans: 21
   percent: 0
 ---
 # Project State
@@ -44,6 +44,8 @@ Key decisions carried forward from v1.0:
 - Never use dynamic bg-${token} Tailwind classes — always use style={{ backgroundColor: `var(--color-${token})` }}
 - alignSelf: start on sticky header div — prevents CSS Grid stretch from breaking position:sticky
 - RecurringFooter uses position:fixed; pb-28 prevents footer overlap with content
+- [Phase 04-layout-fixes]: Removed MULTI_DAY_SLOT (slot 0) concept entirely — all events now use real slots 1–4
+- [Phase 04-layout-fixes]: Interval-graph coloring: sort by start date/duration descending, greedily assign first non-overlapping slot 1–4
 
 ### v1.1-specific context
 
@@ -63,6 +65,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-12T20:00:00.000Z
-Stopped at: v1.1 roadmap created — next step is plan-phase 4
+Last session: 2026-03-12T22:45:21.562Z
+Stopped at: 04-03 checkpoint: Task 1 complete, awaiting human verification of header alignment
 Resume file: None

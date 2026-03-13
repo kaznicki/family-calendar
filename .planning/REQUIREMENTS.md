@@ -54,7 +54,7 @@
 
 ### Layout Fixes
 
-- [ ] **LAYT-01**: Multi-day event chips render inside day column slots (slots 1–4) rather than a separate spanning row above the columns
+- [x] **LAYT-01**: Multi-day event chips render inside day column slots (slots 1–4) rather than a separate spanning row above the columns
 - [ ] **LAYT-02**: Sticky day-name header (Sun–Sat) columns align with the grid columns below it
 
 ### Readability & Typography
@@ -91,7 +91,7 @@
 ## Out of Scope
 
 | Feature | Reason |
-|---------|--------|
+| --- | --- |
 | Push/SMS/email notifications | Not a priority for v1 |
 | Native iOS/Android app | Responsive web covers mobile sufficiently |
 | Multiple calendars | Single family calendar is the use case |
@@ -106,7 +106,7 @@
 Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
-|-------------|-------|--------|
+| --- | --- | --- |
 | GRID-01 | Phase 1 | Complete |
 | GRID-02 | Phase 1 | Complete |
 | GRID-03 | Phase 1 | Complete |
@@ -130,7 +130,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SHRG-01 | Phase 1 | Complete |
 | SHRG-02 | Phase 2 | Complete |
 | PRNT-01 | Phase 3 | Complete |
-| LAYT-01 | Phase 4 | Pending |
+| LAYT-01 | Phase 4 | Complete |
 | LAYT-02 | Phase 4 | Pending |
 | RDBL-01 | Phase 5 | Pending |
 | RDBL-02 | Phase 5 | Pending |

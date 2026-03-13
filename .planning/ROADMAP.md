@@ -68,7 +68,6 @@ Plans:
 - [x] 03-03-PLAN.md — Birthday CRUD in SettingsPanel: Birthdays & Anniversaries section
 - [x] 03-04-PLAN.md — Print view: PrintGrid component, @media print CSS, print button in App.tsx
 - [x] 03-05-PLAN.md — Human verification checkpoint: holiday toggle, birthday display, print layout
-
 </details>
 
 ---
@@ -115,9 +114,9 @@ Plans:
 Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Milestone | Plans Complete | Status | Completed |
-|-------|-----------|----------------|--------|-----------|
+| --- | --- | --- | --- | --- |
 | 1. Grid Scaffold | v1.0 | 5/5 | Complete | 2026-03-10 |
 | 2. Events and Sync | v1.0 | 9/9 | Complete | 2026-03-12 |
 | 3. Visual Polish and Print | v1.0 | 5/5 | Complete | 2026-03-12 |
-| 4. Layout Fixes | v1.1 | 0/3 | Not started | - |
+| 4. Layout Fixes | 2/3 | In Progress |  | - |
 | 5. Visual and Copy Polish | v1.1 | 0/3 | Not started | - |
