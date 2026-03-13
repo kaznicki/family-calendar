@@ -5,7 +5,7 @@ import { getTokenFromURL } from './lib/token'
 import { CalendarGrid } from './components/CalendarGrid'
 import { SettingsPanel } from './components/SettingsPanel'
 import { PrintGrid } from './components/PrintGrid'
-import { useEventsMap, useHolidaysMap, useBirthdaysMap } from './lib/eventStore'
+import { useEventsMap, useHolidaysMap, useBirthdaysMap, useRecurringMap } from './lib/eventStore'
 import { getPrintWeeks } from './lib/dates'
 import type { BirthdayEntry } from './lib/dates'
 
@@ -27,6 +27,7 @@ export default function App() {
   const holidays = useHolidaysMap()
   const birthdaysRaw = useBirthdaysMap()
   const birthdays: BirthdayEntry[] = Object.values(birthdaysRaw).map(v => JSON.parse(v) as BirthdayEntry)
+  const recurring = useRecurringMap()
   const printWeeks = getPrintWeeks()
 
   return (
@@ -67,6 +68,7 @@ export default function App() {
           eventsMap={eventsMap}
           holidays={holidays}
           birthdays={birthdays}
+          recurring={recurring}
         />
       </div>
 
