@@ -54,8 +54,70 @@ describe('DayColumn — today', () => {
 })
 
 describe('DayColumn — slots', () => {
-  it('renders exactly 4 event slots (slots 1-4; slot 0 is multi-day row in WeekRow)', () => {
+  it('renders exactly 4 event slots (slots 1-4: all events including multi-day chips)', () => {
     render(<DayColumn date={MONDAY} />)
+    expect(screen.getAllByTestId('event-slot')).toHaveLength(4)
+  })
+})
+
+describe('DayColumn — multi-day events in slots', () => {
+  const MULTI_DAY_EVENT = {
+    id: 'multi-1',
+    title: 'Spring Break',
+    date: '2026-03-16',
+    personId: 'lois',
+    color: 'lois',
+    isMultiDay: true,
+    endDate: '2026-03-18',
+  }
+
+  const SINGLE_DAY_EVENT = {
+    id: 'single-1',
+    title: 'Doctor Visit',
+    date: '2026-03-16',
+    personId: 'timur',
+    color: 'timur',
+    isMultiDay: false,
+  }
+
+  it('multi-day event appears in slot 1 when slotMap assigns it slot 1', () => {
+    const slotMap = new Map([['multi-1', 1]])
+    render(
+      <DayColumn
+        date={MONDAY}
+        events={[MULTI_DAY_EVENT]}
+        slotMap={slotMap}
+      />
+    )
+    // The event title should be visible somewhere in the rendered output
+    expect(screen.getByText('Spring Break')).toBeInTheDocument()
+  })
+
+  it('multi-day event (slot 1) and single-day event (slot 2) both render without overlap', () => {
+    const slotMap = new Map([
+      ['multi-1', 1],
+      ['single-1', 2],
+    ])
+    render(
+      <DayColumn
+        date={MONDAY}
+        events={[MULTI_DAY_EVENT, SINGLE_DAY_EVENT]}
+        slotMap={slotMap}
+      />
+    )
+    expect(screen.getByText('Spring Break')).toBeInTheDocument()
+    expect(screen.getByText('Doctor Visit')).toBeInTheDocument()
+  })
+
+  it('slot loop renders exactly 4 slots regardless of isMultiDay events', () => {
+    const slotMap = new Map([['multi-1', 1]])
+    render(
+      <DayColumn
+        date={MONDAY}
+        events={[MULTI_DAY_EVENT]}
+        slotMap={slotMap}
+      />
+    )
     expect(screen.getAllByTestId('event-slot')).toHaveLength(4)
   })
 })

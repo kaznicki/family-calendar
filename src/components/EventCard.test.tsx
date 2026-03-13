@@ -33,4 +33,22 @@ describe('EventCard', () => {
     fireEvent.click(screen.getByRole('button'))
     expect(onEdit).toHaveBeenCalledOnce()
   })
+
+  it('renders left border marker when isMultiDay=true', () => {
+    const { container } = render(<EventCard title="Multi" colorToken="lois" isMultiDay={true} onEdit={() => {}} />)
+    const btn = container.firstChild as HTMLElement
+    expect(btn.className).toMatch(/border-l-2/)
+  })
+
+  it('does not render left border marker when isMultiDay is false', () => {
+    const { container } = render(<EventCard title="Single" colorToken="lois" isMultiDay={false} onEdit={() => {}} />)
+    const btn = container.firstChild as HTMLElement
+    expect(btn.className).not.toMatch(/border-l-2/)
+  })
+
+  it('does not render left border marker when isMultiDay is undefined (regression)', () => {
+    const { container } = render(<EventCard title="Single" colorToken="lois" onEdit={() => {}} />)
+    const btn = container.firstChild as HTMLElement
+    expect(btn.className).not.toMatch(/border-l-2/)
+  })
 })
