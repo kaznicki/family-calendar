@@ -99,7 +99,7 @@ export function SettingsPanel({ onClose }: SettingsPanelProps) {
 
       {/* Add person form */}
       <div className="border-t border-gray-200 px-4 py-3 space-y-2">
-        <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Add person</p>
+        <p className="text-xs font-medium text-gray-700 uppercase tracking-wide">Add Person or Group</p>
         <input
           type="text"
           value={name}
