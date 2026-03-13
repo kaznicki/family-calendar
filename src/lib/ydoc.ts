@@ -1,9 +1,15 @@
 import * as Y from 'yjs'
+import { IndexeddbPersistence } from 'y-indexeddb'
 
 // Single Y.Doc for the entire app — created once at module load, before React runs.
 // DO NOT move this into a component, hook, or useMemo — StrictMode double-invoke
 // would create two documents and break sync state.
 export const ydoc = new Y.Doc()
+
+// Persist the Y.Doc to IndexedDB so data survives page reloads without a server.
+// The name 'family-calendar-v1' is the IndexedDB database name — changing it clears
+// all locally stored data, so only change it if a fresh start is intentional.
+export const indexeddbProvider = new IndexeddbPersistence('family-calendar-v1', ydoc)
 
 // Calendar events map: keys are ISO date strings ("2026-03-10")
 // Values are Y.Array<Y.Map<unknown>> — one entry per event on that date.

@@ -17,9 +17,9 @@ export default class CalendarServer implements Party.Server {
     const url = new URL(request.url)
     const token = url.searchParams.get('token')
 
-    // Reject when SECRET_TOKEN is unset (empty string) — fail closed, not open.
-    // Also reject when token is missing or does not match the expected secret.
-    if (!SECRET_TOKEN || !token || token !== SECRET_TOKEN) {
+    // If CALENDAR_TOKEN is not configured (e.g. local dev without .env), allow all connections.
+    // If it is configured, enforce it — reject connections with a missing or wrong token.
+    if (SECRET_TOKEN && (!token || token !== SECRET_TOKEN)) {
       // 401 response prevents WebSocket upgrade — connection never opens
       return new Response('Unauthorized', { status: 401 })
     }
