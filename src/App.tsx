@@ -10,7 +10,7 @@ import { getPrintWeeks } from './lib/dates'
 import type { BirthdayEntry } from './lib/dates'
 
 // PartyKit host: in dev, use localhost:1999; in production, set VITE_PARTYKIT_HOST env var.
-const PARTYKIT_HOST = import.meta.env.VITE_PARTYKIT_HOST ?? 'localhost:1999'
+const PARTYKIT_HOST = import.meta.env.VITE_PARTYKIT_HOST ?? 'family-calendar.kaznicki.partykit.dev'
 
 // Provider created at module scope — not inside the component — so it is stable
 // across React re-renders and StrictMode double-invokes.
