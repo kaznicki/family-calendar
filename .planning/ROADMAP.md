@@ -101,12 +101,12 @@ Plans:
   3. Recurring schedule footer day-of-week column headers are legible at normal reading distance without zooming
   4. Settings modal action buttons have visible contrast (no light-grey text on white background)
   5. The "Add Person" button in the settings panel reads "Add Person or Group"
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 05-01: DayColumn.tsx — bold date numbers + today circular highlight (RDBL-01)
-- [ ] 05-02: WeekRow.tsx — week label typography (RDBL-02) + RecurringFooter.tsx day headers (RDBL-03)
-- [ ] 05-03: SettingsPanel.tsx — button contrast (STNG-01) + label copy (STNG-02)
+- [ ] 05-01-PLAN.md — DayColumn.tsx: bold date numbers + today circular badge (RDBL-01)
+- [ ] 05-02-PLAN.md — WeekRow.tsx week label typography (RDBL-02) + RecurringFooter.tsx day headers (RDBL-03)
+- [ ] 05-03-PLAN.md — SettingsPanel.tsx: section label contrast (STNG-01) + copy change (STNG-02)
 
 ## Progress
 
