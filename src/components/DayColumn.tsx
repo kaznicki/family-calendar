@@ -85,7 +85,7 @@ export function DayColumn({
         </div>
       )}
 
-      {/* Slots 1-4: single-day events (slot 0 is the multi-day row in WeekRow) */}
+      {/* Slots 1-4: all events including multi-day chips */}
       {Array.from({ length: 4 }, (_, i) => {
         const slotIndex = i + 1
         const ev = events.find(e => slotMap.get(e.id) === slotIndex) ?? null

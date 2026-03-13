@@ -6,12 +6,15 @@ export interface EventCardProps {
   onEdit: () => void
 }
 
-export function EventCard({ title, colorToken, startTime, onEdit }: EventCardProps) {
+export function EventCard({ title, colorToken, startTime, isMultiDay, onEdit }: EventCardProps) {
   return (
     <button
       type="button"
       style={{ backgroundColor: `var(--color-${colorToken ?? 'unassigned'})` }}
-      className="flex flex-row items-center gap-0.5 w-full h-6 rounded-sm px-1 text-xs overflow-hidden text-left"
+      className={[
+        'flex flex-row items-center gap-0.5 w-full h-6 rounded-sm px-1 text-xs overflow-hidden text-left',
+        isMultiDay ? 'border-l-2 border-l-black/20' : '',
+      ].filter(Boolean).join(' ')}
       onClick={onEdit}
     >
       <span className="truncate">{title}</span>
