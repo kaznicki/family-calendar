@@ -3,14 +3,14 @@ gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
 status: Roadmap ready — awaiting plan-phase 4
-stopped_at: "04-03 checkpoint: Task 1 complete, awaiting human verification of header alignment"
-last_updated: "2026-03-13T11:59:34.849Z"
+stopped_at: Completed 04-02-PLAN.md — multi-day chips in slot rows, LAYT-01 done
+last_updated: "2026-03-13T12:58:08.855Z"
 last_activity: 2026-03-12 — v1.1 roadmap created
 progress:
   total_phases: 5
-  completed_phases: 3
+  completed_phases: 4
   total_plans: 22
-  completed_plans: 21
+  completed_plans: 22
   percent: 0
 ---
 # Project State
@@ -46,6 +46,7 @@ Key decisions carried forward from v1.0:
 - RecurringFooter uses position:fixed; pb-28 prevents footer overlap with content
 - [Phase 04-layout-fixes]: Removed MULTI_DAY_SLOT (slot 0) concept entirely — all events now use real slots 1–4
 - [Phase 04-layout-fixes]: Interval-graph coloring: sort by start date/duration descending, greedily assign first non-overlapping slot 1–4
+- [Phase 04-layout-fixes]: Pass full weekEvents to DayColumn instead of allEvents[isoDate] — multi-day events keyed by start date only
 
 ### v1.1-specific context
 
@@ -65,6 +66,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-12T22:45:21.562Z
-Stopped at: 04-03 checkpoint: Task 1 complete, awaiting human verification of header alignment
+Last session: 2026-03-13T12:58:08.853Z
+Stopped at: Completed 04-02-PLAN.md — multi-day chips in slot rows, LAYT-01 done
 Resume file: None
