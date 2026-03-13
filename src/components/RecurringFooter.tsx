@@ -27,7 +27,7 @@ export function RecurringFooter() {
         {DAY_LABELS.map((day) => (
           <div
             key={day}
-            className="flex-1 text-center text-[10px] text-gray-400 py-0.5"
+            className="flex-1 text-center text-xs font-semibold text-gray-600 py-0.5"
           >
             {day}
           </div>
