@@ -65,8 +65,8 @@
 
 ### Settings Panel
 
-- [ ] **STNG-01**: Settings modal action buttons have sufficient contrast (no light-grey-on-white text)
-- [ ] **STNG-02**: "Add Person" button label reads "Add Person or Group"
+- [x] **STNG-01**: Settings modal action buttons have sufficient contrast (no light-grey-on-white text)
+- [x] **STNG-02**: "Add Person" button label reads "Add Person or Group"
 
 ## v2 Requirements
 
@@ -135,8 +135,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RDBL-01 | Phase 5 | Pending |
 | RDBL-02 | Phase 5 | Pending |
 | RDBL-03 | Phase 5 | Pending |
-| STNG-01 | Phase 5 | Pending |
-| STNG-02 | Phase 5 | Pending |
+| STNG-01 | Phase 5 | Complete |
+| STNG-02 | Phase 5 | Complete |
 
 **Coverage:**
 - v1.0 requirements: 23 total — all Complete ✓
