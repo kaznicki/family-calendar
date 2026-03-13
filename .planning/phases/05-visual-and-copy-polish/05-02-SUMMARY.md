@@ -105,3 +105,14 @@ None - no external service configuration required.
 ---
 *Phase: 05-visual-and-copy-polish*
 *Completed: 2026-03-13*
+
+## Self-Check: PASSED
+
+- FOUND: src/components/WeekRow.tsx
+- FOUND: src/components/RecurringFooter.tsx
+- FOUND: src/components/WeekRow.test.tsx
+- FOUND: src/components/RecurringFooter.test.tsx
+- FOUND: .planning/phases/05-visual-and-copy-polish/05-02-SUMMARY.md
+- FOUND commit: 1d9b4ad (test: failing RDBL-02 and RDBL-03 assertions)
+- FOUND commit: 62cff08 (feat: RDBL-02 WeekRow typography)
+- FOUND commit: 004a2c8 (feat: RDBL-03 RecurringFooter typography)

@@ -1,5 +1,14 @@
 # Milestones
 
+## v1.1 Visual Polish and UX Fixes (Shipped: 2026-03-13)
+
+**Phases completed:** 5 phases, 25 plans, 0 tasks
+
+**Key accomplishments:**
+- (none recorded)
+
+---
+
 ## v1.0 — Core Calendar (Complete)
 
 **Completed:** 2026-03-12

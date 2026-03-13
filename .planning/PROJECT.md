@@ -2,24 +2,18 @@
 
 ## What This Is
 
-A web-based family calendar that replaces a shared Google Sheet. It uses a grid layout — 7 columns (one per day of the week) scrolling vertically through time, with multiple event slots per day. Family members access it via a shared link and can add or edit events without any login. A printable view covers the next ~10 weeks and can be posted on the fridge.
+A web-based family calendar that replaces a shared Google Sheet. It uses a grid layout — 7 columns (one per day of the week) scrolling vertically through time, with multiple event slots per day. Family members access it via a shared link and can add or edit events without any login. A printable view covers the next ~10 weeks and can be posted on the fridge. Multi-day events render inside day-column slots (not a separate floating row), date numbers are bold and legible on mobile, and today gets a circular blue highlight.
 
 ## Core Value
 
 Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
 
-## Current Milestone: v1.1 Visual Polish and UX Fixes
+## Current State
 
-**Goal:** Fix visual clarity issues and the multi-day chip layout so the app feels polished and intuitive for daily family use.
-
-**Target features:**
-- Multi-day chip refactor — chips render inside day slots (not a separate spanning row)
-- Header day-name alignment — sticky Sun–Sat header aligned with columns below
-- Date number styling — bolder, today gets a circle highlight
-- Week label visibility — stronger typographic treatment
-- Recurring footer day headers — bigger and higher contrast
-- Settings modal button contrast — fix light grey + white text readability
-- "Add Person" → "Add Person or Group" label copy change
+**Shipped:** v1.1 Visual Polish and UX Fixes — 2026-03-13
+**Deployed:** https://family-calendar-seven-pi.vercel.app/
+**LOC:** ~2,875 TypeScript across 5 phases, 25 plans
+**Test suite:** 173 tests, all passing
 
 ## Requirements
 
@@ -33,29 +27,32 @@ Any family member can see what's happening and add an event from any device in s
 - ✓ Birthday/anniversary special color — v1.0
 - ✓ Recurring weekly schedule section — v1.0
 - ✓ Print view (~10 weeks) — v1.0
+- ✓ Multi-day chips render inside day column slots (slots 1–4, not separate row) — v1.1
+- ✓ Sticky day-name header aligned with grid columns below — v1.1
+- ✓ Date numbers bold; today has circular highlight — v1.1
+- ✓ Week range labels visually prominent as row anchors — v1.1
+- ✓ Recurring footer day-of-week headers legible at arm's length — v1.1
+- ✓ Settings modal action buttons have sufficient contrast — v1.1
+- ✓ "Add Person or Group" label in settings panel — v1.1
 
 ### Active
 
-- [ ] Multi-day chips render inside day column slots (not a separate row above)
-- [ ] Sticky day-name header aligned with grid columns below
-- [ ] Date numbers bolder; today has a circular highlight
-- [ ] Week range labels (e.g., "May 11–17") visually prominent
-- [ ] Recurring footer day-of-week headers legible and prominent
-- [ ] Settings modal action buttons have sufficient contrast
-- [ ] "Add Person or Group" label in settings panel
+(None — planning next milestone)
 
 ### Out of Scope
 
 - Push/email/SMS notifications — not a priority
 - User accounts or authentication — shared link is sufficient
 - Native iOS/Android app — responsive web works for both mobile and desktop
+- Hour-slot time scheduling — row-per-event model is intentionally flexible
+- Drag-and-drop event moving — high complexity; not in existing workflow
 
 ## Context
 
 - v1.0 shipped all core features: grid, events, sync, holidays, birthdays, print
-- v1.1 focuses on polish and one architectural fix (multi-day chip layout)
+- v1.1 shipped the multi-day chip architectural fix and full visual/typography polish pass
 - Family of 2–4 people, used daily on phones and desktop browsers
-- Deployed: https://family-calendar-seven-pi.vercel.app/
+- PartyKit backend: family-calendar.kaznicki.partykit.dev
 
 ## Constraints
 
@@ -75,6 +72,9 @@ Any family member can see what's happening and add an event from any device in s
 | Y.Doc at module scope | StrictMode safe, prevents duplicate documents | ✓ Good |
 | Tailwind v4 CSS-first config | No tailwind.config.js — all theming in @theme {} block | ✓ Good |
 | Never use dynamic bg-${token} Tailwind classes | Tailwind v4 purges dynamic class names; use style={{ backgroundColor: var(--color-X) }} | ✓ Good |
+| Removed MULTI_DAY_SLOT (slot 0) entirely — v1.1 | Separate spanning row caused visual disconnect; interval-graph coloring into real slots 1–4 is cleaner | ✓ Good |
+| Sticky header nested inside scroll container — v1.1 | Prevents scrollbar-induced column drift that occurs when header is a sibling flex child | ✓ Good |
+| bg-blue-600 for today badge (not a theme token) — v1.1 | Single-use color; no need to pollute @theme {}; standard Tailwind palette class is safe | ✓ Good |
 
 ---
-*Last updated: 2026-03-12 after v1.0 milestone complete, v1.1 started*
+*Last updated: 2026-03-13 after v1.1 milestone complete*

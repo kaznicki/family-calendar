@@ -1,42 +1,41 @@
 ---
 gsd_state_version: 1
-milestone: v1.1
-milestone_name: Visual Polish and UX Fixes
-status: planning
-stopped_at: Completed 05-02-PLAN.md — RDBL-02 and RDBL-03 typography improvements done
-last_updated: "2026-03-13T14:58:01.995Z"
-last_activity: 2026-03-13 — Phase 4 Layout Fixes completed
+milestone: v1.2
+milestone_name: TBD
+status: Milestone v1.1 complete — planning next milestone
+stopped_at: Completed v1.1 milestone archival — git tag v1.1 pending
+last_updated: "2026-03-13T15:00:00.000Z"
+last_activity: 2026-03-13 — v1.1 Visual Polish and UX Fixes shipped
 progress:
   total_phases: 5
   completed_phases: 5
   total_plans: 25
   completed_plans: 25
-  percent: 80
+  percent: 100
 ---
 # Project State
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-03-12)
+See: .planning/PROJECT.md (updated 2026-03-13)
 
 **Core value:** Any family member can see what's happening and add an event from any device in seconds — without needing to know how a spreadsheet works.
-**Current focus:** Milestone v1.1 — Phase 5: Visual and Copy Polish
+**Current focus:** Planning next milestone (v1.2)
 
 ## Current Position
 
-Phase: 5 (Visual and Copy Polish)
-Plan: Not started
-Status: Phase 4 complete — ready to plan Phase 5
-Last activity: 2026-03-13 — Phase 4 Layout Fixes completed
+Phase: — (between milestones)
+Plan: —
+Status: Milestone v1.1 complete — ready for next milestone
+Last activity: 2026-03-13 — v1.1 shipped (2 phases, 6 plans, 173 tests green)
 
-Progress: [████████░░] 80%
+Progress: [██████████] 100%
 
 ## Accumulated Context
 
 ### Decisions
 
-Decisions are logged in PROJECT.md Key Decisions table.
-Key decisions carried forward from v1.0:
+All decisions logged in PROJECT.md Key Decisions table. Key architectural facts:
 
 - Stack: Vite 6 + React 19 + TypeScript + Tailwind v4 + Yjs + PartyKit on Cloudflare
 - Architecture: Single Y.Doc at app root; display coordinates derived at render time, never stored in Yjs
@@ -44,20 +43,7 @@ Key decisions carried forward from v1.0:
 - Never use dynamic bg-${token} Tailwind classes — always use style={{ backgroundColor: `var(--color-${token})` }}
 - alignSelf: start on sticky header div — prevents CSS Grid stretch from breaking position:sticky
 - RecurringFooter uses position:fixed; pb-28 prevents footer overlap with content
-- [Phase 04-layout-fixes]: Removed MULTI_DAY_SLOT (slot 0) concept entirely — all events now use real slots 1–4
-- [Phase 04-layout-fixes]: Interval-graph coloring: sort by start date/duration descending, greedily assign first non-overlapping slot 1–4
-- [Phase 04-layout-fixes]: Pass full weekEvents to DayColumn instead of allEvents[isoDate] — multi-day events keyed by start date only
-- [Phase 05-01]: w-5 h-5 badge size (20px) fits two-digit dates at text-xs within 53px column; bg-blue-600 used directly as standard Tailwind palette class
-- [Phase 05-visual-and-copy-polish]: Remove col-span-7 from WeekRow week label — div is not a grid child, class was a no-op
-- [Phase 05-visual-and-copy-polish]: text-xs chosen for RecurringFooter day headers — minimum legible size on mobile; content cells stay text-[9px] as compact data cells
-
-### v1.1-specific context
-
-- LAYT-01 is the largest change: slotLayout.ts, WeekRow.tsx, DayColumn.tsx all need refactoring
-- Current multi-day model: slot-0 spanning row above day columns — this is being replaced
-- Target multi-day model: chips render in real slots 1–4 per-day using interval-scheduling algorithm
-- LAYT-02 is a CSS-only fix to CalendarGrid.tsx header alignment
-- Phase 4 must complete before Phase 5 — DayColumn structure changes in Phase 4 affect RDBL-01 rendering
+- Multi-day events: no slot-0 spanning row; interval-graph coloring into real slots 1–4
 
 ### Pending Todos
 
@@ -69,6 +55,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-13T13:35:17.458Z
-Stopped at: Completed 05-02-PLAN.md — RDBL-02 and RDBL-03 typography improvements done
+Last session: 2026-03-13T15:00:00.000Z
+Stopped at: v1.1 milestone complete, archival done, git tag pending
 Resume file: None
