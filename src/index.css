@@ -51,9 +51,15 @@
     padding: 2px 4px;
   }
 
-  /* Landscape and margins */
+  /* Force backgrounds and colors to print (suppressed by default in most browsers) */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Portrait and margins */
   @page {
-    size: landscape;
+    size: portrait;
     margin: 10mm 8mm;
   }
 }
