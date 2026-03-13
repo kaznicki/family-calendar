@@ -155,3 +155,40 @@ describe('DayColumn — birthday background and label', () => {
     expect(screen.getAllByTestId('event-slot')).toHaveLength(4)
   })
 })
+
+describe('DayColumn — RDBL-01 date number typography', () => {
+  it('non-today date number renders with font-bold class', () => {
+    const { container } = render(<DayColumn date={MONDAY} />)
+    const dateHeader = container.querySelector('.text-center.py-0\\.5')
+    const span = dateHeader?.querySelector('span')
+    expect(span?.className).toContain('font-bold')
+  })
+
+  it('non-today date number does NOT have rounded-full (no circle badge)', () => {
+    const { container } = render(<DayColumn date={MONDAY} />)
+    const dateHeader = container.querySelector('.text-center.py-0\\.5')
+    const span = dateHeader?.querySelector('span')
+    expect(span?.className).not.toContain('rounded-full')
+  })
+
+  it("today's date number renders with rounded-full class (circular badge)", () => {
+    const { container } = render(<DayColumn date={new Date()} />)
+    const dateHeader = container.querySelector('.text-center.py-0\\.5')
+    const span = dateHeader?.querySelector('span')
+    expect(span?.className).toContain('rounded-full')
+  })
+
+  it("today's badge has bg-blue-600 class", () => {
+    const { container } = render(<DayColumn date={new Date()} />)
+    const dateHeader = container.querySelector('.text-center.py-0\\.5')
+    const span = dateHeader?.querySelector('span')
+    expect(span?.className).toContain('bg-blue-600')
+  })
+
+  it("today's badge has text-white class", () => {
+    const { container } = render(<DayColumn date={new Date()} />)
+    const dateHeader = container.querySelector('.text-center.py-0\\.5')
+    const span = dateHeader?.querySelector('span')
+    expect(span?.className).toContain('text-white')
+  })
+})
