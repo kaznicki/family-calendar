@@ -1,18 +1,19 @@
 ---
-gsd_state_version: 1
+gsd_state_version: 1.0
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
 status: planning
-stopped_at: Completed 04-02-PLAN.md — multi-day chips in slot rows, LAYT-01 done
-last_updated: "2026-03-13T13:31:31.200Z"
+stopped_at: Completed 05-01-PLAN.md — RDBL-01 bold dates and today circular badge in DayColumn
+last_updated: "2026-03-13T13:33:54.583Z"
 last_activity: 2026-03-13 — Phase 4 Layout Fixes completed
 progress:
   total_phases: 5
   completed_phases: 4
   total_plans: 25
-  completed_plans: 23
+  completed_plans: 24
   percent: 80
 ---
+
 # Project State
 
 ## Project Reference
@@ -47,6 +48,7 @@ Key decisions carried forward from v1.0:
 - [Phase 04-layout-fixes]: Removed MULTI_DAY_SLOT (slot 0) concept entirely — all events now use real slots 1–4
 - [Phase 04-layout-fixes]: Interval-graph coloring: sort by start date/duration descending, greedily assign first non-overlapping slot 1–4
 - [Phase 04-layout-fixes]: Pass full weekEvents to DayColumn instead of allEvents[isoDate] — multi-day events keyed by start date only
+- [Phase 05-01]: w-5 h-5 badge size (20px) fits two-digit dates at text-xs within 53px column; bg-blue-600 used directly as standard Tailwind palette class
 
 ### v1.1-specific context
 
@@ -66,6 +68,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-03-13T12:58:08.853Z
-Stopped at: Completed 04-02-PLAN.md — multi-day chips in slot rows, LAYT-01 done
+Last session: 2026-03-13T13:33:54.567Z
+Stopped at: Completed 05-01-PLAN.md — RDBL-01 bold dates and today circular badge in DayColumn
 Resume file: None
