@@ -57,3 +57,28 @@ describe('RecurringFooter', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument()
   })
 })
+
+describe('RecurringFooter — RDBL-03 day header typography', () => {
+  it('day header cells have class text-xs', () => {
+    const { container } = render(<RecurringFooter />)
+    // Header row is the first flex div; day cells are its children after the empty spacer div
+    const headerRow = container.querySelector('.overflow-auto > .flex')
+    const dayCells = headerRow ? Array.from(headerRow.querySelectorAll('.flex-1')) : []
+    expect(dayCells.length).toBeGreaterThan(0)
+    dayCells.forEach(cell => expect(cell.className).toContain('text-xs'))
+  })
+
+  it('day header cells have class font-semibold', () => {
+    const { container } = render(<RecurringFooter />)
+    const headerRow = container.querySelector('.overflow-auto > .flex')
+    const dayCells = headerRow ? Array.from(headerRow.querySelectorAll('.flex-1')) : []
+    dayCells.forEach(cell => expect(cell.className).toContain('font-semibold'))
+  })
+
+  it('day header cells have class text-gray-600', () => {
+    const { container } = render(<RecurringFooter />)
+    const headerRow = container.querySelector('.overflow-auto > .flex')
+    const dayCells = headerRow ? Array.from(headerRow.querySelectorAll('.flex-1')) : []
+    dayCells.forEach(cell => expect(cell.className).toContain('text-gray-600'))
+  })
+})

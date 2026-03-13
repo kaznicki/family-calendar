@@ -29,3 +29,24 @@ describe('WeekRow', () => {
     expect(multiDayRowDiv).toBeUndefined()
   })
 })
+
+describe('WeekRow — RDBL-02 week label typography', () => {
+  it('week label div has class text-sm', () => {
+    const { container } = render(<WeekRow week={testWeek} isCurrentWeek={false} />)
+    // The week label is the first div child of the WeekRow root
+    const labelDiv = container.firstChild?.firstChild as HTMLElement
+    expect(labelDiv?.className).toContain('text-sm')
+  })
+
+  it('week label div has class font-semibold', () => {
+    const { container } = render(<WeekRow week={testWeek} isCurrentWeek={false} />)
+    const labelDiv = container.firstChild?.firstChild as HTMLElement
+    expect(labelDiv?.className).toContain('font-semibold')
+  })
+
+  it('week label div has class text-gray-700', () => {
+    const { container } = render(<WeekRow week={testWeek} isCurrentWeek={false} />)
+    const labelDiv = container.firstChild?.firstChild as HTMLElement
+    expect(labelDiv?.className).toContain('text-gray-700')
+  })
+})
