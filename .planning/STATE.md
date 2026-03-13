@@ -1,5 +1,5 @@
 ---
-gsd_state_version: 1.0
+gsd_state_version: 1
 milestone: v1.1
 milestone_name: Visual Polish and UX Fixes
 status: planning
@@ -13,7 +13,6 @@ progress:
   completed_plans: 24
   percent: 80
 ---
-
 # Project State
 
 ## Project Reference

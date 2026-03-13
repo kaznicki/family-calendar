@@ -60,8 +60,8 @@
 ### Readability & Typography
 
 - [x] **RDBL-01**: Date numbers are bold and visually prominent; today's date has a circular highlight
-- [ ] **RDBL-02**: Week range labels (e.g., "May 11–17") are large and high-contrast — immediately readable as week anchors
-- [ ] **RDBL-03**: Recurring schedule footer day-of-week column headers are legible and prominent
+- [x] **RDBL-02**: Week range labels (e.g., "May 11–17") are large and high-contrast — immediately readable as week anchors
+- [x] **RDBL-03**: Recurring schedule footer day-of-week column headers are legible and prominent
 
 ### Settings Panel
 
@@ -133,8 +133,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | LAYT-01 | Phase 4 | Complete |
 | LAYT-02 | Phase 4 | Pending |
 | RDBL-01 | Phase 5 | Complete |
-| RDBL-02 | Phase 5 | Pending |
-| RDBL-03 | Phase 5 | Pending |
+| RDBL-02 | Phase 5 | Complete |
+| RDBL-03 | Phase 5 | Complete |
 | STNG-01 | Phase 5 | Complete |
 | STNG-02 | Phase 5 | Complete |
 
