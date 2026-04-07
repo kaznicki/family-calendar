@@ -17,9 +17,9 @@ describe('EventCard', () => {
     expect(container.firstChild).toHaveStyle({ backgroundColor: 'var(--color-unassigned)' })
   })
 
-  it('renders startTime when provided', () => {
+  it('renders startTime in AM/PM format', () => {
     render(<EventCard title="Test" colorToken="timur" startTime="14:30" onEdit={() => {}} />)
-    expect(screen.getByText('14:30')).toBeInTheDocument()
+    expect(screen.getByText('2:30 PM')).toBeInTheDocument()
   })
 
   it('does not render time text when startTime is undefined', () => {

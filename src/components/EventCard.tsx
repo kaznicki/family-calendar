@@ -1,3 +1,10 @@
+function formatTime(hhmm: string): string {
+  const [h, m] = hhmm.split(':').map(Number)
+  const period = h >= 12 ? 'PM' : 'AM'
+  const hour = h % 12 || 12
+  return `${hour}:${String(m).padStart(2, '0')} ${period}`
+}
+
 export interface EventCardProps {
   title: string
   colorToken: string | null
@@ -18,7 +25,7 @@ export function EventCard({ title, colorToken, startTime, isMultiDay, onEdit }: 
       onClick={onEdit}
     >
       <span className="truncate">{title}</span>
-      {startTime && <span className="text-[10px] opacity-70">{startTime}</span>}
+      {startTime && <span className="text-[10px] opacity-70">{formatTime(startTime)}</span>}
     </button>
   )
 }
