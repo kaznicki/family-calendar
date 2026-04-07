@@ -14,9 +14,9 @@ describe('RecurringFooter', () => {
   it('renders one row per person (default 7 people)', () => {
     render(<RecurringFooter />)
     // Each person has a row with their label
-    expect(screen.getByText('Timur')).toBeInTheDocument()
-    expect(screen.getByText('Lois')).toBeInTheDocument()
-    expect(screen.getByText('Ivy')).toBeInTheDocument()
+    expect(screen.getByText('Dad')).toBeInTheDocument()
+    expect(screen.getByText('Mom')).toBeInTheDocument()
+    expect(screen.getByText('Sophia')).toBeInTheDocument()
   })
 
   it('renders 7 columns (one per day of week, Sun-Sat)', () => {
@@ -29,7 +29,7 @@ describe('RecurringFooter', () => {
 
   it('each row is tinted with the person color token via inline style', () => {
     render(<RecurringFooter />)
-    const timurRow = screen.getByText('Timur').closest('[data-testid="person-row"]')
+    const timurRow = screen.getByText('Dad').closest('[data-testid="person-row"]')
     expect(timurRow).toHaveStyle({ backgroundColor: 'var(--color-timur)' })
   })
 
