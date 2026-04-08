@@ -147,7 +147,7 @@ describe('DayColumn — birthday background and label', () => {
 
   it('isBirthday renders label containing the birthday name', () => {
     render(<DayColumn date={MONDAY} isBirthday={BIRTHDAY_JOY} />)
-    expect(screen.getByText("Joy's bday")).toBeInTheDocument()
+    expect(screen.getByText("Joy")).toBeInTheDocument()
   })
 
   it('slot count remains 4 when isBirthday is set', () => {

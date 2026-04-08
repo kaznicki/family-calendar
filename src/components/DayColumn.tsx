@@ -88,7 +88,7 @@ export function DayColumn({
       {/* Birthday label (above slot rows, not consuming a slot) */}
       {isBirthday && (
         <div className="text-[9px] text-amber-700 text-center leading-none pb-0.5 truncate px-0.5">
-          {isBirthday.name}'s bday
+          {isBirthday.name}
         </div>
       )}
 

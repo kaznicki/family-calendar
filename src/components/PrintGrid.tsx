@@ -56,7 +56,7 @@ export function PrintGrid({ weeks, eventsMap, holidays, birthdays, recurring }: 
                   <div className="font-semibold mb-0.5">{format(date, 'd')}</div>
                   {birthday && (
                     <div className="text-[8px] leading-tight text-amber-700 mb-0.5">
-                      {birthday.name}&apos;s bday
+                      {birthday.name}
                     </div>
                   )}
                   {dayEvents.slice(0, 4).map((ev) => (
